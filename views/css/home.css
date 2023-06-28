@@ -41,8 +41,6 @@ header{
   .dropdown {
     flex-basis: 50%;
      margin-right: 2px; 
-    
-
   }
   
   #categoryDropdown,
@@ -131,3 +129,22 @@ header{
     justify-content: center;
     left:50%;
   }
+  #deletelink{
+    text-decoration: none;
+    color: white;
+  }
+  #task-category{
+    border: 1px black solid;
+    height: 25px;
+    background-color: lightblue;
+    padding-top: 7px;
+    display: inline-block;
+    width: 67px;
+    padding-left: 18px;
+  }
+#desc-rndr{
+  font-size: 18px;
+  font-weight: 700;
+}
+
+  

@@ -60,14 +60,14 @@
                     <input type="checkbox" name="task" value="<%= task._id %>" id="checkbox-<%= task._id %>" onclick="handleCheckboxSelect('<%= task._id %>')">
 
                     <div id="content">
-                        <span><%= task.description %></span>
-                        <span>
+                        <span id="desc-rndr"><%= task.description %></span>
+                        <span >
                             <% if (task.date) { %>
                             <%= task.date.toLocaleDateString() %>
                             <% } %>
                         </span>
                     </div>
-                    <div>
+                    <div id="task-category">
                         <%= task.category %>
                     </div>
                 </div>
