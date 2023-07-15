@@ -1,10 +1,13 @@
 const express=require('express');
 
 const router=express.Router();
-const userController=require('../controllers/userController')
-const userPost=require('../controllers/usersPostController')
+const userController=require('../controllers/usersController');
 
-router.get('/profile',userController.profile)
-router.get('/post',userPost.post);
+
+router.get('/sign-Up',userController.signUp);
+router.get('/sign-In',userController.signIn);
+router.post('/create',userController.create);
+router.post('/create-session',userController.session);
+
 
 module.exports=router;

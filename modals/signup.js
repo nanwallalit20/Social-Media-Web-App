@@ -20,5 +20,5 @@ const signUpSchema=new mongoose.Schema({
 }, {
     timestamps:true
 });
-const Page=mongoose.model('user',signUpSchema);
-module.exports=Page;
+const User=mongoose.model('User',signUpSchema);
+module.exports=User;

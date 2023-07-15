@@ -2,6 +2,8 @@ const TaskList=require('../modals/To-do_list');
 
 
 module.exports.home= function(req,res){
+    console.log(req.cookies);
+    res.cookie('field','blah');
     TaskList.find({})
     .then(Tasks => {
         return res.render('homePage',{
