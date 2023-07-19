@@ -1,0 +1,82 @@
+<html>
+    <head>
+
+        <title>
+            <%=title%>
+        </title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="./css/home.css">
+    </head>
+    <body>
+        <header >
+            <h1 >To-Do App</h1>
+        </header>
+    
+      <main>
+        <form id="create-list-form" method="post" action="/to_do/create">
+            <div id="descriptionContainer"  >
+                <div >
+                    <label class="heading" for="description">Description</label>
+                </div>
+            <div >
+                <input type="text" id="description" name="description" placeholder="What do you need to do?">
+            </div>
+            </div>
+            <div id="dropdownContainer" class="container">
+                <div class="dropdown" id="dropdownStyle">
+                <label for="categoryDropdown" class="heading">Category</label> 
+                <select id="categoryDropdown" name="Category">
+                    <option  value="" selected disabled>Add a Category</option>
+                    <option  value="Personal">Personal</option>
+                    <option  value="Work">Work</option>
+                    <option  value="School">School</option>
+                    <option  value="Cleaning">Cleaning</option>
+                    <option  value="Other">other</option>
+                </select>
+                </div>
+                <div class="dropdown" id="dateBlock">
+                    <label for="dueDate" class="heading">DUE DATE</label>
+                <input type="date" id="dueDate" name="dueDate" placeholder="Due Date" >
+                </div>
+            </div>
+            <div class="button-row">
+                <button type="submit" class="action-button" id="AddTask">
+                  <i class="fas fa-plus"></i> Add Task
+                </button>
+                <button class="action-button" id="deleteTask">
+                    <a id="deleteLink" href="/to_do/delete?ids="><i class="fas fa-trash"></i> Delete Task</a> 
+                  </button>
+                  
+            </div>
+            <hr>  
+         </form>
+
+         <ul style="list-style-type:none">
+            <% for(let task of Task_list){%>
+                
+            <li class="list" >
+                <div id="container">
+                    <input type="checkbox" name="task" value="<%= task._id %>" id="checkbox-<%= task._id %>" onclick="handleCheckboxSelect('<%= task._id %>')">
+
+                    <div id="content">
+                        <span id="desc-rndr"><%= task.description %></span>
+                        <span >
+                            <% if (task.date) { %>
+                            <%= task.date.toLocaleDateString() %>
+                            <% } %>
+                        </span>
+                    </div>
+                    <div id="task-category">
+                        <%= task.category %>
+                    </div>
+                </div>
+            </li>
+            <%}%>
+         </ul>  
+
+      </main>  
+      <script type=" text/javascript" src="./js/home.js"></script>
+      
+    </body>
+</html>

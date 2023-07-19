@@ -1,15 +1,26 @@
 const User=require('../modals/signup');
 
 
-module.exports.post=function(req,res){
-    return res.end('<h1> this is user xyz post</h1>')
+module.exports.profile=function(req,res){
+    console.log('welcome to profile');
+    res.render('userProfile',{
+      title:'User Profile'
+    })
+    
 }
 module.exports.signUp=function(req,res){
+  if(req.isAuthenticated())
+  {
+    return res.redirect('/users/profile');
+  }
     res.render('signUpPage',{
         title:"codeial | signUp"
     })
 }
 module.exports.signIn=function(req,res){
+  if(req.isAuthenticated()){
+    return res.redirect('/users/profile');
+  }
     res.render('signInPage',{
         title:'codeial | signIn'
     })
@@ -38,5 +49,16 @@ module.exports.create=function(req,res){
     });
 }
 module.exports.session=function(req,res){
-    //todo later
+    return res.redirect('/');
+}
+module.exports.destroySession=function(req,res){
+  req.logout(function(err){
+    if(err){
+       console.log('error facing while signout the page');
+    }
+    console.log('signed out successfully');
+    return res.redirect('/users/sign-In');
+   
+  });
+  
 }

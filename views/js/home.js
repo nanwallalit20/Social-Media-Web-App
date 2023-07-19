@@ -20,7 +20,7 @@ function handleCheckboxSelect(taskId) {
 
   // Update the delete button's anchor tag with the updated task IDs
   const deleteButton = document.getElementById('deleteLink');
-  deleteButton.setAttribute('href', `/Task/delete?ids=${selectedTaskIds}`);
+  deleteButton.setAttribute('href', `/to_do/delete?ids=${selectedTaskIds}`);
 
   console.log(deleteButton);
   
