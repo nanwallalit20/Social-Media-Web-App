@@ -59,7 +59,9 @@ app.use(express.urlencoded({extended:true}));
 // use express router
 app.use('/',require('./routers/home'));
 
-app.use('/to_do',require('./routers/to-do'));
+
+app.use('/sign-In',require('./routers/signIn'));
+app.use('/sign-Up',require('./routers/signUp'));
 
 app.use('/users',require('./routers/users'));
 

@@ -9,8 +9,7 @@ const userController=require('../controllers/usersController');
  router.post('/post',passport.checkAuthentication,userController.post);
  router.post('/comment',userController.comment);
 
-router.get('/sign-Up',userController.signUp);
-router.get('/sign-In',userController.signIn);
+
 router.post('/create',userController.create);
 //use passport as a middleware to authenticate
 router.post('/create-session',passport.authenticate(

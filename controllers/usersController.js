@@ -11,24 +11,6 @@ module.exports.profile=function(req,res){
     })
     
 }
-module.exports.signUp=function(req,res){
-  if(req.isAuthenticated())
-  {
-    return res.redirect('/users/profile');
-  }
-    res.render('signUpPage',{
-        title:"codeial | signUp",
-        
-    })
-}
-module.exports.signIn=function(req,res){
-  if(req.isAuthenticated()){
-    return res.redirect('/users/profile');
-  }
-    res.render('signInPage',{
-        title:'codeial | signIn'
-    })
-}
 module.exports.post=function(req,res){
    if(req.isAuthenticated()){
     console.log(req.user._id);
