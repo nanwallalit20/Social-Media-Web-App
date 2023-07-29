@@ -1,0 +1,18 @@
+.navbar-nav{
+    background-color: lightseagreen;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position:sticky;
+}
+.nav-link{
+    text-decoration: none;
+    font-size: 30px;
+    color: aliceblue;
+}
+.nav-link:hover{
+    color: black;
+}

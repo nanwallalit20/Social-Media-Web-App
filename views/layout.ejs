@@ -3,16 +3,25 @@
         <title>
             <% title %>
         </title>
-        <link rel="stylesheet" href="/views/css/layout.css">
+        <link rel="stylesheet" href="./css/layout.css">
+       <link rel="stylesheet" href="./css/_header.css">
+       <link rel="stylesheet" href="./css/_footer.css">
         <%- style %>
     </head>
 
     <body>
+       <div>
         <%- include('_header'); %>
-
+       </div>
+       
+       <div id="body-tag">
         <%- body %>
-
+       </div>
+        
+       <div id="footer-tag">
         <%- include('_footer'); %>
+       </div>
+     
 
 
         <%- script %>

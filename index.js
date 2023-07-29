@@ -2,16 +2,18 @@ const express= require('express');
 const cookieParser=require('cookie-parser');
 const app=express();
 const port=7000;
-
 const db=require('./config/mongo');
-const TaskList=require('./modals/To-do_list');
+
+
 const expressLayouts=require('express-ejs-layouts');
 
 //used for session cookie and aunthenticate
 const session=require('express-session');
 const MongoStore=require('connect-mongo')
 const passport=require('passport');
+
 const passportLocal=require('./config/passport-Local')
+
 
 app.use(cookieParser());
 
@@ -24,6 +26,7 @@ app.set('layout extractScripts', true);
 app.set('view engine','ejs')
 app.set('views','./views')
 app.use(express.static('views'))
+app.use(express.static('public'));
 
 app.use(session({
     name:'codial',
@@ -53,14 +56,14 @@ app.use(passport.session());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-
-
 // use express router
 app.use('/',require('./routers/home'));
 
 app.use('/to_do',require('./routers/to-do'));
 
 app.use('/users',require('./routers/users'));
+
+
 
 app.listen(port,function(err){
     if(err){

@@ -1,3 +1,53 @@
+
 <h1>
-    codeial Home Page
+   Welcome To My Page!!!!!
 </h1>
+<h2>Posts</h2>
+<section id="post-feeds">
+   <% if(locals.user){ %>
+<form action="/users/post" method="post" id="new-post-feed">
+   <textarea name="content" id="post_content" cols="30" rows="5" placeholder="post content"> </textarea>
+   <button type="submit" value="submit">Post</button>
+</form>
+<% } %>
+</section>
+<section id="display-post">
+   <!-- <% if(locals.user){ %>
+      <h1><%=locals.user.name%></h1> -->
+      <ul style="list-style-type:none">
+         <% for(let post of Posts){%>
+             
+         <li class="list" >
+             <div id="container">
+                <p><%=post.user.name%></p>
+                <p><%=post.post%></p>
+             </div>
+             <div>
+              
+               <div>
+               <form action="/users/comment" method="post">
+                <textarea name="comment" id="comment" cols="10" rows="3" placeholder="write comments"> </textarea>
+                <input type="hidden" name="post" value="<%=post._id%>">
+               <button type="submit" value="submit"> Comment</button>
+               </form>
+            </div>
+
+            <div>
+             <% for(let comment of post.comment){%>
+
+               <p>
+                  <%=comment.content%>
+                  <br>
+                  <small>
+                     <%=comment.user.name%>
+                  </small>
+               </p>
+               <%}%>
+            </div>
+             </div>
+         </li>
+         <%}%>
+      </ul>  
+    
+    <!-- <% } %> -->
+</section>
