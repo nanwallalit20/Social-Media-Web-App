@@ -3,6 +3,46 @@ const cookieParser=require('cookie-parser');
 const app=express();
 const port=7000;
 const db=require('./config/mongo');
+ 
+
+
+
+const fs = require('fs');
+const path = require('path');
+const sass = require('node-sass');
+const sourceDirectory = './views/scss'; // Replace with the path to your SCSS source directory
+const destinationDirectory = './views/css'; // Replace with the path to your CSS destination directory
+
+function compileSassFile(inputFilePath, outputFilePath) {
+  const result = sass.renderSync({
+    file: inputFilePath,
+    outputStyle: 'expanded', // or 'compressed' for minified CSS
+  });
+
+  fs.writeFileSync(outputFilePath, result.css);
+}
+
+function compileScssDirectory(sourceDir, destDir) {
+  const files = fs.readdirSync(sourceDir);
+
+  files.forEach((file) => {
+    const sourcePath = path.join(sourceDir, file);
+    const destPath = path.join(destDir, path.parse(file).name + '.css');
+
+    const stats = fs.statSync(sourcePath);
+    if (stats.isFile() && path.extname(file) === '.scss') {
+      compileSassFile(sourcePath, destPath);
+    } else if (stats.isDirectory()) {
+      if (!fs.existsSync(destPath)) {
+        fs.mkdirSync(destPath);
+      }
+      compileScssDirectory(sourcePath, destPath);
+    }
+  });
+}
+
+
+compileScssDirectory(sourceDirectory, destinationDirectory);
 
 
 const expressLayouts=require('express-ejs-layouts');
@@ -56,14 +96,21 @@ app.use(passport.session());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
+
+
 // use express router
 app.use('/',require('./routers/home'));
+
+
 
 
 app.use('/sign-In',require('./routers/signIn'));
 app.use('/sign-Up',require('./routers/signUp'));
 
 app.use('/users',require('./routers/users'));
+
+app.use('/post',require('./routers/Post'));
+app.use('/comment',require('./routers/comment'));
 
 
 

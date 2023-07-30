@@ -5,7 +5,7 @@
 <h2>Posts</h2>
 <section id="post-feeds">
    <% if(locals.user){ %>
-<form action="/users/post" method="post" id="new-post-feed">
+<form action="/post/create" method="post" id="new-post-feed">
    <textarea name="content" id="post_content" cols="30" rows="5" placeholder="post content"> </textarea>
    <button type="submit" value="submit">Post</button>
 </form>
@@ -19,14 +19,19 @@
              
          <li class="list" >
              <div id="container">
+               <% if((locals.user) && (post.user.id == locals.user.id  )) { %>
+               <small>
+                  <a href="/post/destroy/<%=post.id%>">X</a>
+               </small>
+               <%  }  %>
                 <p><%=post.user.name%></p>
                 <p><%=post.post%></p>
              </div>
              <div>
               
                <div>
-               <form action="/users/comment" method="post">
-                <textarea name="comment" id="comment" cols="10" rows="3" placeholder="write comments"> </textarea>
+               <form action="/comment/create" method="post">
+                <textarea name="comment" id="comment"  placeholder="write comments"> </textarea>
                 <input type="hidden" name="post" value="<%=post._id%>">
                <button type="submit" value="submit"> Comment</button>
                </form>
@@ -36,6 +41,11 @@
              <% for(let comment of post.comment){%>
 
                <p>
+                  <% if((locals.user) && (comment.user.id == locals.user.id || post.user.id==locals.user.id)) { %>
+                  <small>
+                     <a href="/comment/destroy/<%=comment.id%>">X</a>
+                  </small>
+                  <%  }  %>
                   <%=comment.content%>
                   <br>
                   <small>

@@ -57,7 +57,7 @@ passport.checkAuthentication=function(req,res,next){
     }
 
     //if the user is not signed in
-    return res.redirect('/users/sign-In');
+    return res.redirect('/sign-In');
 }
 
 passport.setAuthenticatedUser=function(req,res,next){
