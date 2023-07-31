@@ -4,12 +4,38 @@ const Comment=require('../modals/comment')
 const { Cookie } = require('express-session');
 
 module.exports.profile=function(req,res){
+  let id=req.params.id;
     console.log('welcome to profile');
-    res.render('userProfile',{
-      title:'User Profile',
-      
-    })
-    
+    User.findById(id)
+    .then(user=>{
+          res.render('userProfile',{
+        title:'User Profile',
+        userData : user      
+      })
+    })  
+}
+
+module.exports.update=function(req,res){
+  let id=req.params.id;
+  if(id==req.user.id)
+  {
+    User.findByIdAndUpdate(id,req.body)
+      .then(user=>{
+        console.log('updated successfully')
+    return res.redirect('back')
+  })
+  .catch(err=>{
+    if(err)
+    {
+      console.log('error in updating user');
+      return res.redirect('back');
+    }
+  })
+  }
+  else{
+    return res.status(403,'unauthorised access');
+  }
+  
 }
       
  
@@ -19,9 +45,7 @@ module.exports.create=function(req,res){
     {
         res.redirect('back');
     }
-   
-
-    User.findOne({ email: req.body.email })
+   User.findOne({ email: req.body.email })
     .then(existingUser => {
       
       if (!existingUser) {

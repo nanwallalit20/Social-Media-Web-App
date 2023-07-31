@@ -1,18 +1,19 @@
 <header>
-<nav>
-  <div class="navbar-nav">
+<nav class="navbar-nav">
+  <div id="nav-items">
     <a class="nav-link " href="/">Home</a>
     <a class="nav-link" href="/sign-In">Sign-In</a>
     <a class="nav-link" href="/sign-Up">Sign-up</a>
   </div>
+  <div id="user-details">
+    <% if(locals.user){ %>
+      <a class="nav-user" href="/users/profile"><%=user.name%></a>
+      <a class="nav-user" href="/users/sign-Out"> Sign Out</a>
+    <% } %>
+  </div>
 </nav>
 <ul>
-  <% if(locals.user){ %>
-   <li><h3><a href="/users/profile"><%=user.name%></a></h3></li> 
-   <li><a href="/users/sign-Out"> Sign Out</a></li>
-
-
- <% } %>
+  
 
 </ul>
 </header>

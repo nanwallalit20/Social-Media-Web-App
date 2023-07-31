@@ -8,6 +8,20 @@
         <h1>
             this is page where  <%=title%> is shown
         </h1>
+        <p>
+            <% if(user.id==userData.id) {%>
+               <form action="/users/update/<%=userData.id%>" method="post">
+                <input type="text" name="name" id="name" placeholder="Your Name" value="<%=userData.name%>">
+                <input type="email" name="email" id="email" placeholder="Your Email" value="<%=userData.email%>">
+                <input type="submit" placeholder="Update">
+               </form>
+                
+            <%} else {%>
+                <h1><%=userData.name%></h1>
+                <h1><%=userData.email%></h1>
+            <% } %>
+           
+        </p>
     </body>
 
 </html>

@@ -1,0 +1,23 @@
+#home-container {
+  display: flex;
+}
+
+#home-container #post-feeds {
+  width: 70%;
+  padding: 10px;
+}
+
+#home-container #friends-list {
+  width: 30%;
+  height: 100vh;
+  padding: 10px;
+  border-left: 2px solid rgb(8, 8, 8);
+}
+#username{
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+#username:hover{
+  color: white;
+}
