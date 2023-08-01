@@ -53,6 +53,8 @@ const MongoStore=require('connect-mongo')
 const passport=require('passport');
 
 const passportLocal=require('./config/passport-Local')
+const flash=require('connect-flash');
+const flashMware=require('./config/flashMWare');
 
 
 app.use(cookieParser());
@@ -88,8 +90,9 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
- app.use(passport.setAuthenticatedUser);
+app.use(passport.setAuthenticatedUser);
+app.use(flash());
+app.use(flashMware.setFlash);
 
 
 //middlewares for encoded data change in request body

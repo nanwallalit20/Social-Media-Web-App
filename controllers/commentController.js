@@ -12,18 +12,19 @@ module.exports.create = async function(req,res)
           user:req.user._id,
         post:req.body.post,
       });
-       console.log("new comment:",newComment)
+     
         
         post.comment.push(newComment);
         post.save();
         console.log(post);
+        req.flash('success','New Comment Added');
         return res.redirect('back');
       }
       catch(err)
       {
         if(err)
         {
-          consolole.log('error',err);
+          req.flash('error',err);
         }
       }
   
@@ -42,10 +43,11 @@ module.exports.create = async function(req,res)
                let updatedPost= await Post.findByIdAndUpdate(postId,{$pull:{comment:req.params.id}});
                updatedPost.save();
                console.log("deleted");
+               req.flash('success','comment deleted')
                return res.redirect('back')
           }
           else{
-           console.log('you are trying to delete someone others comment');
+            req.flash('error','you are trying to delete someone others comment')
            return res.redirect('back');
              }
    
@@ -54,7 +56,7 @@ module.exports.create = async function(req,res)
     {
       if(err)
       {
-        console.log('error destroying comment',err);
+       req.flash('error',err);
       }
     }
   

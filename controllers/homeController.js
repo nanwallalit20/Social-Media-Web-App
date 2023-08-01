@@ -35,7 +35,7 @@ module.exports.home=async function(req,res){
     {
       if(err)
       {
-        console.log('error in deleting post',err);
+        req.flash('error',err);
       }
     }
     

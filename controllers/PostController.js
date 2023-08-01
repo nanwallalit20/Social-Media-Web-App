@@ -11,10 +11,11 @@ module.exports.create= async function(req,res){
          post:req.body.content,
           user:res.locals.user._id ,    //we can access the same with req.user._id
        });
-         console.log("new post:",newPost);
+         req.flash('success','Post Published!!!')
          return res.redirect('/');
      } 
      else{
+      req.flash('error','Please Login/SignUp to Publish!!!!')
        return  res.render('signInPage',{
          title:'codeial | signIn'
      })
@@ -24,7 +25,7 @@ module.exports.create= async function(req,res){
     {
       if(err)
       {
-        console.log('error in creating post',err);
+        req.flash('error',err);
       }
     }  
  }
@@ -40,11 +41,11 @@ module.exports.create= async function(req,res){
           post.deleteOne(post._id);
          let deletedComment=await Comment.deleteMany({post:req.params.id});
          
-            console.log('comments deleted successfully');
+         req.flash('success','Post deleted!!')
             return res.redirect('back');
         }
         else{
-          console.log('you are trying to delete some other users post ');
+          req.flash('error','You are not authorised to perform this !!!!')
           return res.redirect('/users/sign-Out');
         }
     }
@@ -52,7 +53,7 @@ module.exports.create= async function(req,res){
     {
       if(err)
       {
-        console.log('error in deleting post',err);
+        req.flash('error',err);
       }
     }
       

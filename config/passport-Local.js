@@ -7,22 +7,23 @@ const User=require('../modals/signup');
 //anthentication using passport
 
 passport.use(new LocalStrategy({
-    usernameField:'email'
+    usernameField:'email',
+   passReqToCallback:true
 },
-function(email,password,done){
+function( req,email,password,done){
     //find the user establish the identity
 
     User.findOne({email:email}).
         then(User=>{
             if(!User || User.password != password){
-                console.log('invalid login credentials');
+                req.flash('error','invalid login credentials')
                 return done(null,false);
             }
-    
+            req.flash('success','Logged in ')
             return done(null,User);
         })
         .catch(err=>{
-            console.log('error in finding user');
+            req.flash('error',err);
             return done(err);
         })
         
