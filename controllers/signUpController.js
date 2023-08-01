@@ -1,4 +1,4 @@
-module.exports.signUp=function(req,res){
+module.exports.signUp=async function(req,res){
     if(req.isAuthenticated())
     {
       return res.redirect('/users/profile');

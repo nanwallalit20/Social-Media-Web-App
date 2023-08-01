@@ -1,7 +1,7 @@
 const Post=require('../modals/postSchema')
 const Comment=require('../modals/comment');
 const User=require('../modals/signup');
-module.exports.home=function(req,res){
+module.exports.home=async function(req,res){
 
     // Post.find({user:req.user._id}).
     // then(posts=>{
@@ -20,30 +20,24 @@ module.exports.home=function(req,res){
     // })
 
     //method 2 for displaying user data on the page as shown in video
-    Post.find({}).populate('user').populate({path:'comment',populate:{path:'user'}}).exec().
-    then(posts=>{
-        User.find().
-        then(users=>{
-            return res.render('homepage',{
-                title:'home',
-                Posts:posts,
-                Users: users
+    try{
+        let posts =await Post.find({}).populate('user').populate({path:'comment',populate:{path:'user'}}).exec();
+        let users= await User.find();
+            
+        return res.render('homepage',{
+            title:'home',
+            Posts:posts,
+            Users: users
+           
         })
-        
-        })
-        .catch(err=>{
-            if(err){
-                console.log('error in finding user')
-                return res.redirect('back')
-            }
-        })
-    })
+    }
+    catch(err)
+    {
+      if(err)
+      {
+        console.log('error in deleting post',err);
+      }
+    }
     
-    .catch(err=>{
-       if(err){
-        console.log('error in displaying post',err);
-        return res.redirect('back')
-       } 
-    })
-
+    
 }

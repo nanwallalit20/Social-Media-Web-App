@@ -5,8 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
- 
+  gap: 20px;
+  position: sticky;
 }
 
 .nav-link {
@@ -17,24 +17,4 @@
 
 .nav-link:hover {
   color: black;
-}
-#user-details{
-  display: flex;
-  gap: 10px;
-  position: absolute;
-  right: 20;
- 
-}
-.nav-user{
-  text-decoration: none;
-  font-size: 15px;
-  color: aliceblue;
-}
-.nav-user:hover{
-  color: black;
-}
-#nav-items{
-  width: 60%;
-  display: flex;
-  gap: 15px;
 }

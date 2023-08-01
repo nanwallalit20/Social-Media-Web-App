@@ -3,73 +3,80 @@ const Post=require('../modals/postSchema');
 const Comment=require('../modals/comment')
 const { Cookie } = require('express-session');
 
-module.exports.profile=function(req,res){
+module.exports.profile= async function(req,res){
+  try{ 
   let id=req.params.id;
     console.log('welcome to profile');
-    User.findById(id)
-    .then(user=>{
+    let user= await User.findById(id);
+   
           res.render('userProfile',{
         title:'User Profile',
         userData : user      
       })
-    })  
+    } 
+    catch(err)
+    {
+      if(err)
+      {
+        console.log('error in rendering profile',err);
+      }
+    } 
+  
 }
 
-module.exports.update=function(req,res){
-  let id=req.params.id;
-  if(id==req.user.id)
+module.exports.update= async function(req,res){
+  try{
+    let id=req.params.id;
+    if(id==req.user.id)
+    {
+     let user= await User.findByIdAndUpdate(id,req.body);
+      console.log('updated successfully')
+      return res.redirect('back')
+    }
+    else{
+      return res.status(403,'unauthorised access');
+    }  
+  }
+  catch(err)
   {
-    User.findByIdAndUpdate(id,req.body)
-      .then(user=>{
-        console.log('updated successfully')
-    return res.redirect('back')
-  })
-  .catch(err=>{
     if(err)
     {
-      console.log('error in updating user');
-      return res.redirect('back');
+      console.log('error in updating profile',err);
     }
-  })
-  }
-  else{
-    return res.status(403,'unauthorised access');
-  }
-  
+  }  
 }
       
  
 
-module.exports.create=function(req,res){
+module.exports.create= async function(req,res){
+  try{
     if(req.body.password != req.body.confirm_password)
     {
         res.redirect('back');
     }
-   User.findOne({ email: req.body.email })
-    .then(existingUser => {
-      
+   let existingUser=await User.findOne({ email: req.body.email })
       if (!existingUser) {
-        return User.create(req.body);
-      } else {
+        let newUser=await User.create(req.body);
+        console.log('User created successfully',newUser);
+        return res.redirect('/sign-In');
+      } 
+      else {
         return Promise.reject('User already exists');
       }
-    })
-    .then(newUser => {
-      console.log('User created successfully');
-      return res.redirect('/sign-In');
-    })
-    .catch(err => {
-      if(err){
-        console.log('Error in creating user while signing up:', err);
-      }
-      
-      return res.redirect('back');
-    });
+    }
+     catch(err)
+      {
+        if(err)
+        {
+          console.log('error in updating profile',err);
+        }
+      }  
 }
-module.exports.session=function(req,res){
+module.exports.session=async function(req,res){
     return res.redirect('/');
 }
-module.exports.destroySession=function(req,res){
+
+module.exports.destroySession=async function(req,res){
   req.logout(function(err){
     if(err){
        console.log('error facing while signout the page');
