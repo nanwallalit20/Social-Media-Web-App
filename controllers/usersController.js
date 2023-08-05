@@ -90,3 +90,18 @@ module.exports.destroySession=async function(req,res){
   
 }
 
+module.exports.details=function(req,res){
+  let id=req.params.id;
+  User.findById(id).
+  then(user=>{
+    if(req.xhr){
+      return res.status(200).json({
+        data:{
+          user:user
+        },
+        message:"user fetched !!"
+      })
+    }
+  })
+}
+

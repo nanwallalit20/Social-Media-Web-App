@@ -11,57 +11,16 @@
    
       <!-- <% if(locals.user){ %>
          <h1><%=locals.user.name%></h1> -->
-         <ul style="list-style-type:none">
-            <% for(let post of Posts){%>
-   
-               <li class="list" >
-                  <div id="container">
-                    <% if((locals.user) && (post.user.id == locals.user.id  )) { %>
-                    <small>
-                       <a href="/post/destroy/<%=post.id%>">X</a>
-                    </small>
-                    <%  }  %>
-                     <p><%=post.user.name%></p>
-                     <p><%=post.post%></p>
-                  </div>
-                  <div>
-                   
-                    <div>
-                    <form action="/comment/create" method="post">
-                     <textarea name="comment" id="comment"  placeholder="write comments"> </textarea>
-                     <input type="hidden" name="post" value="<%=post._id%>">
-                    <button type="submit" value="submit"> Comment</button>
-                    </form>
-                 </div>
-              
-                 <div>
-                  <ul>
-                  <% for(let comment of post.comment){%>
-              
-                  
-                       <% if((locals.user) && (comment.user.id == locals.user.id || post.user.id==locals.user.id)) { %>
-                      
-                        <li> 
-                           <small>
-                              <a href="/comment/destroy/<%=comment.id%>">X</a>
-                           </small>
-                           <%  }  %>
-                           <%=comment.content%>
-                           <br>
-                           <small>
-                              <%=comment.user.name%>
-                           </small>
-                          </li>
-              
-                    <%}%>
-                    
-                  </ul>
-                 </div>
-                  </div>
-              </li>
-   
-            <%}%>
-         </ul>  
+        <div id="post-list-container">
+            <ul style="list-style-type:none" >
+               <% for(let post of Posts){%>
+      
+                  <%- include('_post',{ post: post }) -%>
+
+               <%}%>
+            </ul>  
+        </div> 
+         
        
        <!-- <% } %> -->
    </section>
@@ -74,6 +33,8 @@
       <% } %>
    </section>
 </div>
+<script  type="module" src="./js/homePage.mjs"></script>
+<script type="module" src="./js/comment.mjs"></script>
 
 
 

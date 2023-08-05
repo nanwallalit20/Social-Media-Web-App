@@ -21,7 +21,7 @@ module.exports.home=async function(req,res){
 
     //method 2 for displaying user data on the page as shown in video
     try{
-        let posts =await Post.find({}).populate('user').populate({path:'comment',populate:{path:'user'}}).exec();
+        let posts =await Post.find({}).sort('-createdAt').populate('user').populate({path:'comment',populate:{path:'user'}}).exec();
         let users= await User.find();
             
         return res.render('homepage',{

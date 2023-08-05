@@ -5,7 +5,7 @@ const Comment=require('../modals/comment');
 module.exports.create = async function(req,res)
 {
   try{
-        console.log(req.body);
+        console.log( 'req bidy:',req.body);
         let post= await Post.findById(req.body.post);
         let newComment= await Comment.create({
           content:req.body.comment,
@@ -17,6 +17,15 @@ module.exports.create = async function(req,res)
         post.comment.push(newComment);
         post.save();
         console.log(post);
+        if(req.xhr){
+          return res.status(200).json({
+            data:{
+              comment:newComment
+            },
+            message:'New Comment Added!!!!'
+          })
+          
+        }
         req.flash('success','New Comment Added');
         return res.redirect('back');
       }
@@ -43,6 +52,14 @@ module.exports.create = async function(req,res)
                let updatedPost= await Post.findByIdAndUpdate(postId,{$pull:{comment:req.params.id}});
                updatedPost.save();
                console.log("deleted");
+               if(req.xhr){
+                return res.status(200).json({
+                  data:{
+                    comment_id:comment._id
+                  },
+                  message:'Comment Deleted!!!!'
+                })
+               }
                req.flash('success','comment deleted')
                return res.redirect('back')
           }
