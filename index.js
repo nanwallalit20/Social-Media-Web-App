@@ -65,10 +65,13 @@ app.set('layout extractScripts', true);
 
 
 // set the view engine
+app.use(express.static(path.join(__dirname, 'views')));
 app.set('view engine','ejs')
-app.set('views','./views')
-app.use(express.static('views'))
-app.use(express.static('public'));
+// app.set('views','./views')
+// app.use(express.static('views'))
+
+app.use('/users/profile/css',express.static(__dirname+'/views/css'))
+app.use('/uploads',express.static(__dirname+'/uploads'))
 
 app.use(session({
     name:'codial',
@@ -105,7 +108,7 @@ app.use(express.urlencoded({extended:true}));
 app.use('/',require('./routers/home'));
 
 
-
+app.use('/css',express.static(__dirname+'/views/css'));
 
 app.use('/sign-In',require('./routers/signIn'));
 app.use('/sign-Up',require('./routers/signUp'));

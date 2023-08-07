@@ -3,12 +3,13 @@ const Post=require('../modals/postSchema');
 const Comment=require('../modals/comment')
 const { Cookie } = require('express-session');
 
+
 module.exports.profile= async function(req,res){
   try{ 
   let id=req.params.id;
     console.log('welcome to profile');
     let user= await User.findById(id);
-   
+   console.log(user);
           res.render('userProfile',{
         title:'User Profile',
         userData : user      
@@ -26,12 +27,29 @@ module.exports.profile= async function(req,res){
 
 module.exports.update= async function(req,res){
   try{
-    let id=req.params.id;
-    if(id==req.user.id)
+    
+    if(req.params.id==req.user.id)
     {
-     let user= await User.findByIdAndUpdate(id,req.body);
-      console.log('updated successfully')
-      return res.redirect('back')
+
+    //  let user= await User.findByIdAndUpdate(id,req.body);
+    //   console.log('updated successfully')
+    //   return res.redirect('back')
+          let user=await User.findById(req.params.id);
+          User.uploadAvtar(req,res,function(err){
+            if(err){
+              console.log("Error uploading file");
+            }
+            user.name=req.body.name,
+            user.email = req.body.email;
+            if(req.file){
+              user.avatar=User.avtarPath+'/'+req.file.filename;
+            }
+            console.log(user)
+            user.save();
+            return res.redirect('back');
+            
+          })
+      
     }
     else{
       return res.status(403,'unauthorised access');
