@@ -2,6 +2,8 @@ const User=require('../modals/signup');
 const Post=require('../modals/postSchema');
 const Comment=require('../modals/comment')
 const { Cookie } = require('express-session');
+const fs=require('fs');
+const path =require('path')
 
 
 module.exports.profile= async function(req,res){
@@ -42,8 +44,14 @@ module.exports.update= async function(req,res){
             user.name=req.body.name,
             user.email = req.body.email;
             if(req.file){
-              user.avatar=User.avtarPath+'/'+req.file.filename;
+
+              if(user.avatar){
+                fs.unlinkSync(path.join(__dirname+'/..'+user.avatar))
+              }  
+
+              user.avatar=User.avtarPath+'/'+req.file.filename; 
             }
+           
             console.log(user)
             user.save();
             return res.redirect('back');

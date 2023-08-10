@@ -1,11 +1,14 @@
-
+<link rel="stylesheet"  href="./css/userProfile.css">
 <img src=" <%=userData.avatar%>" alt=" <%=userData.name%>" width="100" height="100">
         <p>
             <% if(user.id==userData.id) {%>
-               <form action="/users/update/<%=userData.id%>" method="post" enctype="multipart/form-data">
+               <form action="/users/update/<%=userData.id%>" method="post" enctype="multipart/form-data" id="form-elements">
                 <input type="text" name="name" id="name" placeholder="Your Name" value="<%=userData.name%>">
                 <input type="email" name="email" id="email" placeholder="Your Email" value="<%=userData.email%>">
-                <input type="file" name="avatar" placeholder="Profile_picture">
+                <input type="file" name="avatar" placeholder="Profile_picture"  id="imageInput">
+                <div id="imagePreviewBox" >
+                    <img id="imagePreview" src="#" alt="Image Preview">
+                </div>
                 <input type="submit" placeholder="Update">
                </form>
                 
@@ -16,3 +19,4 @@
            
         </p>
     </body>
+<script type="text/javascript" src="./js/userProfile.js"></script>

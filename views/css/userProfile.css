@@ -1,0 +1,10 @@
+#imagePreview{
+
+    height: 100px;
+    width: 60px;
+    border: 3px black solid;
+    
+}
+#imagePreviewBox{
+    display: none ;
+}

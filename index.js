@@ -53,6 +53,7 @@ const MongoStore=require('connect-mongo')
 const passport=require('passport');
 
 const passportLocal=require('./config/passport-Local')
+const passportJwt=require('./config/passport-jwt-strategy')
 const flash=require('connect-flash');
 const flashMware=require('./config/flashMWare');
 
@@ -71,6 +72,7 @@ app.set('view engine','ejs')
 // app.use(express.static('views'))
 
 app.use('/users/profile/css',express.static(__dirname+'/views/css'))
+app.use('/users/profile/js',express.static(__dirname+'/views/js'))
 app.use('/uploads',express.static(__dirname+'/uploads'))
 
 app.use(session({
@@ -117,6 +119,9 @@ app.use('/users',require('./routers/users'));
 
 app.use('/post',require('./routers/Post'));
 app.use('/comment',require('./routers/comment'));
+
+
+app.use('/api',require('./routers/api'))
 
 
 
