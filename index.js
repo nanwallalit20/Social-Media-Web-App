@@ -54,6 +54,7 @@ const passport=require('passport');
 
 const passportLocal=require('./config/passport-Local')
 const passportJwt=require('./config/passport-jwt-strategy')
+const passportGoogle=require('./config/passport-googleOAuth2Strategy');
 const flash=require('connect-flash');
 const flashMware=require('./config/flashMWare');
 
