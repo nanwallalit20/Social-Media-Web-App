@@ -1,5 +1,7 @@
 const Post=require('../modals/postSchema');
 const Comment=require('../modals/comment');
+const  User=require('../modals/signup')
+const commentsMailer=require('../Mailers/newComment_mailer')
 
 
 module.exports.create = async function(req,res)
@@ -17,17 +19,26 @@ module.exports.create = async function(req,res)
         post.comment.push(newComment);
         post.save();
         console.log(post);
-        if(req.xhr){
-          return res.status(200).json({
-            data:{
-              comment:newComment
-            },
-            message:'New Comment Added!!!!'
-          })
-          
-        }
-        req.flash('success','New Comment Added');
-        return res.redirect('back');
+        newComment.populate('user','name email')
+            .then
+              (comment=>{
+                commentsMailer.newComment(comment);
+                if(req.xhr){
+                  return res.status(200).json({
+                    data:{
+                      comment:comment
+                    },
+                    message:'New Comment Added!!!!'
+                  })
+                }
+                req.flash('success','New Comment Added');
+                return res.redirect('back');
+              })
+            .catch(err=>{
+                if(err){
+                  console.log('error in populating user',err) 
+                }
+            })
       }
       catch(err)
       {

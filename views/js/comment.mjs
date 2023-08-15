@@ -113,19 +113,9 @@ export class PostComments{
                 data: $(self).serialize(),
                 success: function(data){
                     console.log(data);
-                    $.ajax({
-                        type:'get',
-                        url:`/users/userDetail/${data.data.comment.user}`,
-                        success:function(user){
-                            let newComment = pSelf.newCommentDom(data.data.comment,user.data.user);
-                            $(`#post-comments-${postId}`).prepend(newComment);
-                            pSelf.deleteComment($(' .delete-comment-button', newComment));
-                                     
-                        },
-                        error:function(err){
-                            console.log(err.responseText);
-                        }
-                    })
+                    let newComment = pSelf.newCommentDom(data.data.comment);
+                    $(`#post-comments-${postId}`).prepend(newComment);
+                    pSelf.deleteComment($(' .delete-comment-button', newComment));
 
                     new Noty({
                         text: 'comment Created!!!',
@@ -146,7 +136,7 @@ export class PostComments{
     }
 
 
-    newCommentDom(comment,user){
+    newCommentDom(comment){
         // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
         return $(`<li id="comment-${ comment._id }">
                         <p>
@@ -158,7 +148,7 @@ export class PostComments{
                             ${comment.content}
                             <br>
                             <small>
-                                ${user.name}
+                                ${comment.user.name}
                             </small>
                         </p>    
 
