@@ -27,8 +27,9 @@
    <section id="friends-list">
       <% for(let user of Users){ %>
    
-         <p >
-            <a id="username" href="/users/profile/<%=user.id%>"><%=user.name%></a>
+         <p class="friend-detail">
+            <a href="/users/profile/<%=user.id%>"><img src="<%=user.avatar%>" alt=" profile-Picture" class="profile-Picture"></a>
+            <a id="username" class="friend-name" href="/users/profile/<%=user.id%>"><%=user.name%></a>
          </p>
       <% } %>
    </section>

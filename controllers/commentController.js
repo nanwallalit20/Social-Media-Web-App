@@ -2,6 +2,8 @@ const Post=require('../modals/postSchema');
 const Comment=require('../modals/comment');
 const  User=require('../modals/signup')
 const commentsMailer=require('../Mailers/newComment_mailer')
+const queue=require('../config/kue')
+const commentsWorker=require('../workers/comment_email_worker')
 
 
 module.exports.create = async function(req,res)
@@ -18,11 +20,21 @@ module.exports.create = async function(req,res)
         
         post.comment.push(newComment);
         post.save();
-        console.log(post);
+        console.log('new comment is :',newComment);
         newComment.populate('user','name email')
             .then
               (comment=>{
-                commentsMailer.newComment(comment);
+               // commentsMailer.newComment(comment);
+               
+
+               let job=queue.create('emails',comment).save(function(err){
+                if(err ) {
+                  console.log('error in creating queue',err);
+                  return;
+                }
+                console.log('job id is:',job.id);
+               })
+                
                 if(req.xhr){
                   return res.status(200).json({
                     data:{

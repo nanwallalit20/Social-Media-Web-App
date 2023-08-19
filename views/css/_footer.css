@@ -1,7 +1,47 @@
+
+
+/* Footer */
 #bottom {
+  background-color: #333; /* Customize as needed */
+  color: #fff;
+  padding: 20px 0;
+  height: 100px;
   width: 100%;
-  background-color: #c29381;
-  height: 20%;
-  position: static;
-  bottom: 0;
+}
+
+/* Footer Container */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Footer Logo */
+.footer-logo img {
+  width: 100px; /* Adjust logo size */
+}
+
+/* Footer Links */
+.footer-links a {
+  text-decoration: none;
+  color: #fff;
+  margin-right: 20px;
+}
+
+/* Footer Social Icons */
+.footer-social a {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.footer-social img {
+  width: 30px; /* Adjust icon size */
+}
+
+/* Footer Copyright */
+.footer-copy {
+  text-align: center;
+  margin-top: 20px;
 }

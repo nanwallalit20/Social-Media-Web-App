@@ -1,21 +1,26 @@
 
 
 <header>
-<nav class="navbar-nav">
-  <div id="nav-items">
-    <a class="nav-link " href="/">Home</a>
-    <a class="nav-link" href="/sign-In">Sign-In</a>
-    <a class="nav-link" href="/sign-Up">Sign-up</a>
-  </div>
-  <div id="user-details">
-    <% if(locals.user){ %>
-      <a class="nav-user" href="/users/profile/<%=user.id%>"><%=user.name%></a>
-      <a class="nav-user" href="/users/sign-Out"> Sign Out</a>
-    <% } %>
-  </div>
-</nav>
-<ul>
-  
-
-</ul>
+  <nav class="navbar-nav">
+    <div id="nav-items">
+      <a class="nav-link left" href="/">Social Media App</a>
+      <div class="search-container">
+        <input type="search" class="search-tag" placeholder="Search...">
+      </div>
+      <div id="user-details">
+        <% if (locals.user) { %>
+          <a href="/users/profile/<%= user.id %>">
+            <img src="<%= user.avatar %>" alt="Profile Picture" class="profile-Picture">
+          </a>
+          <a class="nav-link" href="/users/profile/<%= user.id %>"><%= user.name %></a>
+          <a class="nav-link" href="/users/sign-Out">Sign Out</a>
+        <% } else { %>
+          <div class="login-button">
+            <a class="nav-link" href="/sign-In">Sign-In</a>
+            <a class="nav-link" href="/sign-Up">Sign-up</a>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </nav>
 </header>

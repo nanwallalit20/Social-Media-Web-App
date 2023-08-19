@@ -3,7 +3,10 @@ const Post=require('../modals/postSchema');
 const Comment=require('../modals/comment')
 const { Cookie } = require('express-session');
 const fs=require('fs');
-const path =require('path')
+const path =require('path');
+const reset=require('../modals/forget-pass');
+const forgotPasswordNodemailer=require('../Mailers/forgot_passwordMailer')
+const crypto=require('crypto');
 
 
 module.exports.profile= async function(req,res){
@@ -82,7 +85,12 @@ module.exports.create= async function(req,res){
     }
    let existingUser=await User.findOne({ email: req.body.email })
       if (!existingUser) {
-        let newUser=await User.create(req.body);
+        let newUser=await User.create({
+          name:req.body.name,
+          email:req.body.email,
+          password:req.body.password,
+          isVerified:false
+        });
         console.log('User created successfully',newUser);
         return res.redirect('/sign-In');
       } 
@@ -130,4 +138,97 @@ module.exports.details=function(req,res){
     }
   })
 }
+module.exports.delete=async function(req,res){
+  
+  try{
+    let user=await User.findByIdAndDelete(req.params.id);
+     
+    
+   await Post.deleteMany({user:user._id});
+   
+    await Comment.deleteMany({user:user._id})
+    
+   console.log('user deleted successfully');
+    return res.redirect('back');
+  }
+catch(err){
+  console.log(`Error in deleting user ${err}`)
+}
+}
+module.exports.forgot=function(req,res){
 
+  res.render('forgotPass',{
+    title:"forgot-password"
+  })
+}
+module.exports.reset=async function(req,res){
+try{
+  console.log('email from request is',req.body);
+  let token= crypto.randomBytes(20).toString('hex');
+  let finduser= await User.findOne({email:req.body.email});
+  console.log('finduser is',finduser)
+  
+ 
+  let forgot_user= await reset.create({
+   
+    token:token,
+    user:finduser._id,
+    isValid:true,
+  })
+
+  forgotPasswordNodemailer.newPassword(token)
+  req.flash('success','reset password mail is send successfully!!!')
+  return res.redirect('/sign-In')
+}catch(err){
+  if(err){
+    console.log('error in sending forgot password mail',err)
+  }
+}
+  
+}
+module.exports.confirmPass=(req,res)=>{
+  let token=req.query.accesstoken;
+  reset.findOne({token:token}).then(user=>{
+    if(user.isValid==true){
+      user.isValid=false;
+      res.render('newPassword',{
+        token:token,
+        title:'Reset Password'
+      });
+    }
+    else{
+      reset.deleteOne({token:token});
+      res.send('your token is expired!!!');
+    }
+  })
+ 
+}
+module.exports.newPassword=async (req,res)=>{
+  console.log('received data:',req.query);
+  console.log('body data:',req.body);
+
+  try {
+        if(req.body.newPassword != req.body.confirmPassword){
+          req.flash('error','password didnot match please re-enter it')
+          return res.redirect('back')
+        }
+        else{
+          let token =req.query.accesstoken;
+         let forgotUser=await reset.findOne({token:token});
+         
+          let updatedUser= await User.findByIdAndUpdate(forgotUser.user,{
+            password:req.body.newPassword
+          })
+          updatedUser.save();
+          console.log('updated details are:',updatedUser);
+          await reset.deleteOne({token:token})
+          req.flash('success','Your password is changed Successfully!!')
+          return res.redirect('/sign-In') 
+        }
+  }
+  catch (e) {
+    if(e){
+      console.log('error in setting new password for the user',e);
+    }
+  }
+}

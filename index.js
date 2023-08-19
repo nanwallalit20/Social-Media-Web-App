@@ -57,6 +57,7 @@ const passportJwt=require('./config/passport-jwt-strategy')
 const passportGoogle=require('./config/passport-googleOAuth2Strategy');
 const flash=require('connect-flash');
 const flashMware=require('./config/flashMWare');
+const cors=require('cors');
 
 
 app.use(cookieParser());
@@ -93,6 +94,7 @@ app.use(session({
         console.log("error in storing cookies in mongo",err)
       }),
 }));
+app.use(cors());
 
 app.use(passport.initialize());
 app.use(passport.session());

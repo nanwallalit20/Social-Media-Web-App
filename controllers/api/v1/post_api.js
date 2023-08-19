@@ -1,11 +1,58 @@
 const Post=require('../../../modals/postSchema');
 const Comment=require('../../../modals/comment');
 
-module.exports.index=function(req,res){
-    return res.json(200,{
-        message:'api posts',
-        posts:[]
-    })
+
+
+module.exports.data=async function(req,res){
+    try{    
+            let posts= await Post.find({});
+            return res.json(200,{
+                message:"post fetched ",
+                posts:posts
+            })
+    }
+    catch(err)
+        {
+            if(err)
+            {
+                console.log('**********error:',err);
+                return res.json(500,{
+                    message:'internal server error'
+                })
+            }    
+        }
+}
+
+module.exports.create=async function(req,res){
+    try{
+            if(req.isAuthenticated())
+            {
+            let newPost= await Post.create({
+            post:req.body.content,
+                user:res.locals.user._id ,    //we can access the same with req.user._id
+            });
+            
+            return res.json(200,{
+                message:'post fetched successfully!!',
+                data:{
+                    post:newPost
+                }
+            })
+             } 
+            else
+            {
+            return res.json(403,{
+                message:'unauthorised access'
+            })
+            }  
+      }
+      catch(err)
+      {
+        console.log('**********error:',err);
+        return res.json(500,{
+            message:'internal server error'
+        })
+      }  
 }
 
 module.exports.destroy= async function(req,res){

@@ -11,6 +11,8 @@ const { Strategy } = require('passport-jwt');
  router.post('/update/:id',passport.checkAuthentication,userController.update )
  router.get('/userDetail/:id',passport.checkAuthentication,userController.details);
 
+ router.get('/delete/:id',passport.checkAuthentication,userController.delete)
+
  
 
 
@@ -25,6 +27,10 @@ router.get('/sign-Out',userController.destroySession);
 
 router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}))
 router.get('/auth/google/callback', passport.authenticate('google',{failureRedirect:'/sign-In'}),userController.session);
+router.get('/forgot-pass',userController.forgot)
+router.post('/reset-password',userController.reset)
+router.get('/resetPassword',userController.confirmPass);
+router.post('/newPassword',userController.newPassword)
 
 
 module.exports=router;

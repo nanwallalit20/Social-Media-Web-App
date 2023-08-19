@@ -1,0 +1,63 @@
+/* Add these styles to your signin-styles.css file */
+
+  .page-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 30%;
+
+   
+  }
+  
+  .signin-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .signin-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .forgot-password {
+    margin-top: 10px;
+  }
+  
+  .separator {
+    margin: 20px 0;
+    border-top: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .social-signin {
+    margin-top: 20px;
+  }
+  
+  .social-signin p {
+    margin-bottom: 10px;
+  }
+  
+  .google {
+    background-color: #dc4e41;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: inline-block;
+  }
+  

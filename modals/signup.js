@@ -22,6 +22,10 @@ const signUpSchema=new mongoose.Schema({
     },
     avatar:{
         type:String
+    },
+    isVerified:{
+        type:Boolean,
+        
     }
 }, {
     timestamps:true

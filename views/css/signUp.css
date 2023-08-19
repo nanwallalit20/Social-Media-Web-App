@@ -1,0 +1,55 @@
+/* Add these styles to your signup-styles.css file */
+
+.signup-form-container{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+  .container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 320px;
+  }
+  
+  .signup-form label {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .signup-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .signup-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .social-signup {
+    margin-top: 20px;
+  }
+  
+  .social-signup a {
+    background-color: #dc4e41;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: inline-block;
+  }
+  

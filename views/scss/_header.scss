@@ -15,4 +15,47 @@
 }
 .nav-link:hover{
     color: black;
+}.navbar-nav {
+    background-color: rgb(16, 124, 226);
+    height: 50px;
+    width: 100%;
+    gap: 20px;
+    position: sticky;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    font-size: 30px;
+    color: aliceblue;
+  }
+  
+  .nav-link:hover {
+    color: black;
+  }
+  #nav-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
+  .left{
+    margin-right: 4rem ;
+  }
+  .search-tag{
+    border :none !important;
+    outline: none! important;
+    padding: .7em  8%  .9em   8% ;
+    box-shadow: inset -1px -1px #dcdcdd ,inset 1px 1px #ffffff;
+    transition:.5s ease all;
+    margin-top: 0.4rem;
+  }
+  
+.profile-Picture {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 0.3rem;
 }

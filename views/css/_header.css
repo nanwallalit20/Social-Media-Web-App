@@ -1,20 +1,66 @@
-.navbar-nav {
-  background-color: lightseagreen;
-  height: 50px;
-  width: 100%;
+/* Add these styles to your CSS file */
+
+/* Header */
+header {
+  background-color: #333; /* Customize as needed */
+  color: #fff; /* Customize text color */
+  padding: 10px 0;
+}
+
+/* Logo/Name on the Left */
+.nav-link.left {
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Search Container */
+.search-container {
+  flex: 1;
+  padding: 0 20px;
+  
+}
+
+/* Search Input */
+.search-tag {
+  width: 70%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 15%;
+}
+
+/* User Details Container */
+#user-details {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  position: sticky;
 }
 
+/* Profile Picture */
+.profile-Picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Navigation Link */
 .nav-link {
   text-decoration: none;
-  font-size: 30px;
-  color: aliceblue;
+  color: #fff;
+  margin-right: 10px;
 }
 
-.nav-link:hover {
-  color: black;
+/* Login Button Container */
+.login-button {
+  display: flex;
+  align-items: center;
+}
+#nav-items{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
 }

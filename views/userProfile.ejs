@@ -1,22 +1,28 @@
 <link rel="stylesheet"  href="./css/userProfile.css">
-<img src=" <%=userData.avatar%>" alt=" <%=userData.name%>" width="100" height="100">
-        <p>
-            <% if(user.id==userData.id) {%>
-               <form action="/users/update/<%=userData.id%>" method="post" enctype="multipart/form-data" id="form-elements">
-                <input type="text" name="name" id="name" placeholder="Your Name" value="<%=userData.name%>">
-                <input type="email" name="email" id="email" placeholder="Your Email" value="<%=userData.email%>">
-                <input type="file" name="avatar" placeholder="Profile_picture"  id="imageInput">
-                <div id="imagePreviewBox" >
-                    <img id="imagePreview" src="#" alt="Image Preview">
+<body>
+ <div class="profile-container">
+     <div class="container">
+            <div class="profile-header">
+                <img src="<%= userData.avatar %>" alt="<%= userData.name %>" class="profile-avatar">
+                <div class="profile-actions">
+                <% if (user.id === userData.id) { %>
+                    <form action="/users/update/<%= userData.id %>" method="post" enctype="multipart/form-data">
+                    <input type="text" name="name" placeholder="Your Name" value="<%= userData.name %>" class="profile-input">
+                    <input type="email" name="email" placeholder="Your Email" value="<%= userData.email %>" class="profile-input">
+                    <input type="file" name="avatar" id="imageInput" class="profile-input">
+                    <div id="imagePreviewBox">
+                        <img id="imagePreview" src="#" alt="Image Preview">
+                    </div>
+                    <button type="submit" class="update-button">Update</button>
+                    <a href="/users/delete/<%= userData.id %>" method="delete" class="deactivate-link">Deactivate Account</a>
+                    </form>
+                <% } else { %>
+                    <h1 class="profile-name"><%= userData.name %></h1>
+                    <h2 class="profile-email"><%= userData.email %></h2>
+                <% } %>
                 </div>
-                <input type="submit" placeholder="Update">
-               </form>
-                
-            <%} else {%>
-                <h1><%=userData.name%></h1>
-                <h1><%=userData.email%></h1>
-            <% } %>
-           
-        </p>
-    </body>
+            </div>
+     </div>
+ </div>
+</body>
 <script type="text/javascript" src="./js/userProfile.js"></script>
