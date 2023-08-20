@@ -3,6 +3,9 @@ const passport=require('passport');
 const LocalStrategy=require('passport-local');
 
 const User=require('../modals/signup');
+const reset=require('../modals/forget-pass')
+const crypto=require('crypto');
+const userVerification=require('../Mailers/user_verification')
 
 //anthentication using passport
 
@@ -18,6 +21,26 @@ function( req,email,password,done){
             if(!User || User.password != password){
                 req.flash('error','invalid login credentials')
                 return done(null,false);
+            }
+            if(User.isVerified!=true){
+                let token= crypto.randomBytes(20).toString('hex');
+                 reset.create({
+                    token:token,
+                    user:User._id,
+                    isValid:true,
+                    }).then(verifyUser=>{
+                        userVerification.verification(token);
+                    })
+                    .catch(e=>{
+                        if(e){
+                            console.log('error in creating token for verification mail',e);
+                        }
+                    })
+                 
+                console.log("user not verified");
+                req.flash('error','email not verified,check your mail');
+                return done(null,false);
+
             }
             req.flash('success','Logged in ')
             return done(null,User);

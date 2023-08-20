@@ -6,6 +6,7 @@ const fs=require('fs');
 const path =require('path');
 const reset=require('../modals/forget-pass');
 const forgotPasswordNodemailer=require('../Mailers/forgot_passwordMailer')
+const userVerification=require('../Mailers/user_verification');
 const crypto=require('crypto');
 
 
@@ -92,6 +93,16 @@ module.exports.create= async function(req,res){
           isVerified:false
         });
         console.log('User created successfully',newUser);
+        //send verification mail to the newly registered users
+        let token= crypto.randomBytes(20).toString('hex');
+        let verifyUser= await reset.create({
+   
+          token:token,
+          user:newUser._id,
+          isValid:true,
+        })
+        userVerification.verification(token);
+
         return res.redirect('/sign-In');
       } 
       else {
@@ -107,8 +118,15 @@ module.exports.create= async function(req,res){
       }  
 }
 module.exports.session=async function(req,res){
-  req.flash('success','you have logged in ');
+  if(req.user.isVerified==true){
+    req.flash('success','you have logged in ');
     return res.redirect('/');
+  }
+  else{
+    req.flash('error','please verify your email first');
+    return res.redirect('back');
+  }
+ 
 }
 
 module.exports.destroySession=async function(req,res){
@@ -231,4 +249,40 @@ module.exports.newPassword=async (req,res)=>{
       console.log('error in setting new password for the user',e);
     }
   }
+}
+exports.verifyModule=async (req,res)=>{
+  try{
+
+    let token=req.query.accesstoken;
+    
+    let  verificationData=await reset.findOne({token});
+    
+    if(verificationData.isValid==true){
+      verificationData.isValid=false;
+      let userId=verificationData.user;
+
+      let verifiedUser=await User.findByIdAndUpdate(userId,{
+        isVerified:true
+      });
+      console.log('verified user is:',verifiedUser)
+      verifiedUser.save();
+      console.log('user verification is successful!!',verifiedUser);
+      await reset.deleteOne({token:token});
+      req.flash("success","Account Verified successfully");
+     return  res.redirect('/sign-In');
+    }
+    else{
+    await reset.deleteOne({token:token});
+      req.flash('error','Your token is expired !!!');
+      return res.redirect('/sign-In') 
+    }
+  }
+  catch(e){
+    if(e){
+      console.log('error in verification of user',e);
+      return res.redirect('back');
+    }
+  }
+    
+
 }

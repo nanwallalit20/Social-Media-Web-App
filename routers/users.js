@@ -30,7 +30,8 @@ router.get('/auth/google/callback', passport.authenticate('google',{failureRedir
 router.get('/forgot-pass',userController.forgot)
 router.post('/reset-password',userController.reset)
 router.get('/resetPassword',userController.confirmPass);
-router.post('/newPassword',userController.newPassword)
+router.post('/newPassword',userController.newPassword);
+router.get('/verify_user',userController.verifyModule);
 
 
 module.exports=router;

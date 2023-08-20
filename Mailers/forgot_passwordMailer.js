@@ -1,6 +1,6 @@
 const nodemailer=require('../config/nodemailer');
 const forgot=require('../modals/forget-pass')
-exports. newPassword= async function(token,email){
+exports. newPassword= async function(token){
        let UserDetails= await forgot.findOne({token:token});
      
       UserDetails.populate('user').then(populatedUser=>{

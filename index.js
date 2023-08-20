@@ -9,40 +9,40 @@ const db=require('./config/mongo');
 
 const fs = require('fs');
 const path = require('path');
-const sass = require('node-sass');
-const sourceDirectory = './views/scss'; // Replace with the path to your SCSS source directory
-const destinationDirectory = './views/css'; // Replace with the path to your CSS destination directory
+// const sass = require('node-sass');
+// const sourceDirectory = './views/scss'; // Replace with the path to your SCSS source directory
+// const destinationDirectory = './views/css'; // Replace with the path to your CSS destination directory
 
-function compileSassFile(inputFilePath, outputFilePath) {
-  const result = sass.renderSync({
-    file: inputFilePath,
-    outputStyle: 'expanded', // or 'compressed' for minified CSS
-  });
+// function compileSassFile(inputFilePath, outputFilePath) {
+//   const result = sass.renderSync({
+//     file: inputFilePath,
+//     outputStyle: 'expanded', // or 'compressed' for minified CSS
+//   });
 
-  fs.writeFileSync(outputFilePath, result.css);
-}
+//   fs.writeFileSync(outputFilePath, result.css);
+// }
 
-function compileScssDirectory(sourceDir, destDir) {
-  const files = fs.readdirSync(sourceDir);
+// function compileScssDirectory(sourceDir, destDir) {
+//   const files = fs.readdirSync(sourceDir);
 
-  files.forEach((file) => {
-    const sourcePath = path.join(sourceDir, file);
-    const destPath = path.join(destDir, path.parse(file).name + '.css');
+//   files.forEach((file) => {
+//     const sourcePath = path.join(sourceDir, file);
+//     const destPath = path.join(destDir, path.parse(file).name + '.css');
 
-    const stats = fs.statSync(sourcePath);
-    if (stats.isFile() && path.extname(file) === '.scss') {
-      compileSassFile(sourcePath, destPath);
-    } else if (stats.isDirectory()) {
-      if (!fs.existsSync(destPath)) {
-        fs.mkdirSync(destPath);
-      }
-      compileScssDirectory(sourcePath, destPath);
-    }
-  });
-}
+//     const stats = fs.statSync(sourcePath);
+//     if (stats.isFile() && path.extname(file) === '.scss') {
+//       compileSassFile(sourcePath, destPath);
+//     } else if (stats.isDirectory()) {
+//       if (!fs.existsSync(destPath)) {
+//         fs.mkdirSync(destPath);
+//       }
+//       compileScssDirectory(sourcePath, destPath);
+//     }
+//   });
+// }
 
 
-compileScssDirectory(sourceDirectory, destinationDirectory);
+// compileScssDirectory(sourceDirectory, destinationDirectory);
 
 
 const expressLayouts=require('express-ejs-layouts');
