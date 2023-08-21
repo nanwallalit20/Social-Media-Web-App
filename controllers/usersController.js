@@ -106,6 +106,7 @@ module.exports.create= async function(req,res){
         return res.redirect('/sign-In');
       } 
       else {
+                
         return Promise.reject('User already exists');
       }
     }

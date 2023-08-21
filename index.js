@@ -125,6 +125,7 @@ app.use('/comment',require('./routers/comment'));
 
 
 app.use('/api',require('./routers/api'))
+app.use('/likes',require('./routers/LIkes'))
 
 
 

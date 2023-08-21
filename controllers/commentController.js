@@ -4,6 +4,7 @@ const  User=require('../modals/signup')
 const commentsMailer=require('../Mailers/newComment_mailer')
 const queue=require('../config/kue')
 const commentsWorker=require('../workers/comment_email_worker')
+const Like=require('../modals/Likes');
 
 
 module.exports.create = async function(req,res)
@@ -72,6 +73,7 @@ module.exports.create = async function(req,res)
          {
                let postId=comment.post;
                comment.deleteOne(comment._id);
+               await Like.deleteMany({likeable:comment._id,onModel:'Comment'});
                let updatedPost= await Post.findByIdAndUpdate(postId,{$pull:{comment:req.params.id}});
                updatedPost.save();
                console.log("deleted");

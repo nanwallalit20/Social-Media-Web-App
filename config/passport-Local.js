@@ -22,7 +22,7 @@ function( req,email,password,done){
                 req.flash('error','invalid login credentials')
                 return done(null,false);
             }
-            if(User.isVerified!=true){
+            else if(User.isVerified!=true){
                 let token= crypto.randomBytes(20).toString('hex');
                  reset.create({
                     token:token,
@@ -42,8 +42,11 @@ function( req,email,password,done){
                 return done(null,false);
 
             }
-            req.flash('success','Logged in ')
-            return done(null,User);
+            else{
+                req.flash('success','Logged in ')
+                return done(null,User);
+            }
+          
         })
         .catch(err=>{
             req.flash('error',err);

@@ -1,5 +1,5 @@
 const mongosh=require('mongoose');
-
+const Likes=require('./Likes');
 const commentSchema=new mongosh.Schema({
     content:{
         type:String,
@@ -12,7 +12,14 @@ const commentSchema=new mongosh.Schema({
     post:{
         type:mongosh.Schema.Types.ObjectId,
         ref:'Post'
-    }
+    },
+    likes:
+    [
+        {
+            type : mongosh.Schema.Types.ObjectId ,
+            ref:Likes
+        }
+    ]  
 },{
     timestamps:true
 })

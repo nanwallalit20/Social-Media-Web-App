@@ -25,6 +25,6 @@ exports. newPassword= async function(token){
       })
       
        
-    let htmlString=nodemailer.renderTemplate({link:`http://localhost:7000/users/resetPassword/?accesstoken=${token}`},'./forgot-password/forgot_password.ejs')
+    let htmlString=nodemailer.renderTemplate({link:`localhost:7000/users/resetPassword/?accesstoken=${token}`},'./forgot-password/forgot_password.ejs')
     
 }

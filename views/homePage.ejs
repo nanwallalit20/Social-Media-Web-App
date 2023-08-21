@@ -36,6 +36,14 @@
 </div>
 <script  type="module" src="./js/homePage.mjs"></script>
 <script type="module" src="./js/comment.mjs"></script>
+<script type="module" src="./js/like.mjs"></script>
+<script type="module">
+   import {ToggleLike} from './js/like.mjs'
+   $('.toggle-like-button').each(function(){
+      let self=this;
+      let toggleLike=new ToggleLike(self);
+   })
+</script>
 
 
 

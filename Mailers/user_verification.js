@@ -23,6 +23,6 @@ exports.verification=(token)=>{
             }
             })
 
-        let htmlString=nodemailer.renderTemplate({link:`http://localhost:7000/users/verify_user/?accesstoken=${token}`},'./verifyUser/verifyUser.ejs')          
+        let htmlString=nodemailer.renderTemplate({link:`localhost:7000/users/verify_user/?accesstoken=${token}`},'./verifyUser/verifyUser.ejs')          
 }
 

@@ -1,4 +1,5 @@
 import { PostComments } from "./comment.mjs";
+import { ToggleLike } from "./like.mjs";
     let createPost=function(){
         let newPostFeed=$('#new-post-feed');
        
@@ -21,6 +22,7 @@ import { PostComments } from "./comment.mjs";
                             new PostComments(data.data.post._id);
                                 let link=$(' .delete-post-button',newPost)
                              deletePost(link)
+                            new ToggleLike($('. toggle-like-button',newPost)) 
                         },
                         error:function(err){
                             console.log(err.responseText);
@@ -48,7 +50,10 @@ import { PostComments } from "./comment.mjs";
        
            <p>${user.name}</p>
            <p>${post.post}</p>
-        </div>
+           <small>
+           <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&amp;type=Post"> Likes-0 </a>
+            </small>
+           </div>
         <div>
            <div>
               <form action="/comment/create" method="post">
@@ -84,7 +89,7 @@ import { PostComments } from "./comment.mjs";
                     console.log(data);
                     
                     $(`#post-${data.data.post_id}`).remove();
-                    //displayFlashMessage(data.message);
+                    displayFlashMessage(data.message);
                 },
                 error: function (error) {
                     console.log(error.responseText);

@@ -7,6 +7,12 @@
       <%  }  %>
       <p><%=post.user.name%></p>
       <p><%=post.post%></p>
+      <% if(locals.user){%>
+      <a class="toggle-like-button"  data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post.id%>&amp;type=Post"> Likes - <%= post.likes.length %></a>
+      <%}else{%>
+       <span> Likes - <%= post.likes.length %></span>
+      <%}%>
+
    </div>
    <div>
       <div id="form-container">

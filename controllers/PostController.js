@@ -1,6 +1,6 @@
 const Post=require('../modals/postSchema');
 const Comment =require('../modals/comment');
-const { default: mongoose } = require('mongoose');
+const Like=require('../modals/Likes');
 
 
 module.exports.create= async function(req,res){
@@ -48,6 +48,8 @@ module.exports.create= async function(req,res){
       let post= await Post.findById(req.params.id)
         console.log(post);
         if(post.user==req.user.id){
+          await Like.deleteMany({likeable:'post',onModel:'Post'});
+          await Like.deleteMany({_id:{$in:post.comment}})
           post.deleteOne(post._id);
          let deletedComment=await Comment.deleteMany({post:req.params.id});
          

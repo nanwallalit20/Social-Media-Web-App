@@ -1,6 +1,7 @@
 const mongosh=require('mongoose');
 const User = require('./signup');
 const Comment=require('./comment');
+const Likes=require('./Likes');
 
 const postSchema=new mongosh.Schema({
     post:{
@@ -17,7 +18,14 @@ const postSchema=new mongosh.Schema({
                 type:mongosh.Schema.ObjectId,
                 ref:Comment
             }
-        ]
+        ],
+    likes:
+    [
+        {
+            type : mongosh.Schema.ObjectId ,
+            ref:Likes
+        }
+    ]    
 },{
     timestamps:true
 })
