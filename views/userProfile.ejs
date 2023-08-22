@@ -19,6 +19,7 @@
                 <% } else { %>
                     <h1 class="profile-name"><%= userData.name %></h1>
                     <h2 class="profile-email"><%= userData.email %></h2>
+                    <a href="/friendship/follow/?id=<%=userData._id%>" class="add-friend-button" method="post">Add Friend</a>
                 <% } %>
                 </div>
             </div>
@@ -26,3 +27,11 @@
  </div>
 </body>
 <script type="text/javascript" src="./js/userProfile.js"></script>
+<script type="module"> 
+    import{ToggleFriendship} from './js/userProfile.js'
+
+    $('.add-friend-button').each(function(){
+        let self=this;
+        let toggleFriend=new ToggleFriendship(self);
+     })
+</script>

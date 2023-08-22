@@ -58,6 +58,12 @@ const passportGoogle=require('./config/passport-googleOAuth2Strategy');
 const flash=require('connect-flash');
 const flashMware=require('./config/flashMWare');
 const cors=require('cors');
+app.use(cors());
+//setup web sockets for chatEngine
+const chatServer=require('http').Server(app);
+const chatSocket=require('./config/chat_sockets').chatSocket(chatServer);
+chatServer.listen(3000);
+console.log('web socket is running on port:3000');
 
 
 app.use(cookieParser());
@@ -94,7 +100,7 @@ app.use(session({
         console.log("error in storing cookies in mongo",err)
       }),
 }));
-app.use(cors());
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -126,6 +132,7 @@ app.use('/comment',require('./routers/comment'));
 
 app.use('/api',require('./routers/api'))
 app.use('/likes',require('./routers/LIkes'))
+app.use('/friendship',require('./routers/Friendship'))
 
 
 

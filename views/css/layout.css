@@ -10,4 +10,5 @@ body {
 .main-content {
   flex: 1; /* Take up remaining vertical space */
   overflow-y: scroll; /* Add scrollbar when content overflows */
+  
 }

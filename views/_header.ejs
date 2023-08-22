@@ -3,7 +3,11 @@
     <div id="nav-items">
       <a class="nav-link left" href="/">Social Media App</a>
       <div class="search-container">
-        <input type="search" class="search-tag" placeholder="Search...">
+            <form id="search-form">
+              <input type="text" id="search-input" class="search-tag" placeholder="Search...">
+              <button type="submit">Search</button>
+            </form>
+      <div id="search-popup" class="popup" style="display: none;"></div>
       </div>
       <div id="user-details">
         <% if (locals.user) { %>
@@ -22,3 +26,4 @@
     </div>
   </nav>
 </header>
+<script src="./js/search.js"></script>

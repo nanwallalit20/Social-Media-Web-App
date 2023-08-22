@@ -1,4 +1,4 @@
-console.log('yaha aaya')
+
 export class ToggleLike{
     constructor(toggleElement){
         this.toggler = toggleElement;

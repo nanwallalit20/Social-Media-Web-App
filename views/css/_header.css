@@ -19,6 +19,7 @@ header {
 .search-container {
   flex: 1;
   padding: 0 20px;
+  position: relative;
   
 }
 
@@ -28,7 +29,7 @@ header {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-left: 15%;
+  padding-top: 10px;
 }
 
 /* User Details Container */
@@ -63,4 +64,28 @@ header {
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+}
+.popup {
+  position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    /* padding: 10px; */
+    max-height: 300px;
+    overflow-y: scroll;
+    width: 66%;
+    box-sizing: border-box;
+    /* margin-top: 10px; */
+    /* top: calc(100% + 10px); */
+    left: 13%;
+    display: none; 
+}
+.search-container:focus-within .popup {
+  display: block;
+}
+#search-form{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
 }

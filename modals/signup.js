@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 const path=require('path')
 const multer=require('multer');
+const Friendship = require('./friendship');
 const Avtar_path=path.join('/uploads/users/avatars')
 
 const signUpSchema=new mongoose.Schema({
@@ -26,7 +27,13 @@ const signUpSchema=new mongoose.Schema({
     isVerified:{
         type:Boolean,
         
-    }
+    },
+    friends:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:Friendship
+        }
+    ]
 }, {
     timestamps:true
 });
