@@ -6,16 +6,21 @@
                 <img src="<%= userData.avatar %>" alt="<%= userData.name %>" class="profile-avatar">
                 <div class="profile-actions">
                 <% if (user.id === userData.id) { %>
-                    <form action="/users/update/<%= userData.id %>" method="post" enctype="multipart/form-data">
-                    <input type="text" name="name" placeholder="Your Name" value="<%= userData.name %>" class="profile-input">
-                    <input type="email" name="email" placeholder="Your Email" value="<%= userData.email %>" class="profile-input">
-                    <input type="file" name="avatar" id="imageInput" class="profile-input">
-                    <div id="imagePreviewBox">
-                        <img id="imagePreview" src="#" alt="Image Preview">
-                    </div>
-                    <button type="submit" class="update-button">Update</button>
+                <h1 class="profile-name"><%= userData.name %></h1>
+                <h2 class="profile-email"><%= userData.email %></h2>
+                <button id="toggleButton" class="update-button">Update Profile</button>
+                <div id="popup-update" class="popup" style="display: none;">
+                    <form id="updateForm"  action="/users/update/<%= userData.id %>" method="post" enctype="multipart/form-data">
+                        <input type="text" name="name" placeholder="Your Name" value="<%= userData.name %>" class="profile-input">
+                        <input type="email" name="email" placeholder="Your Email" value="<%= userData.email %>" class="profile-input">
+                        <input type="file" name="avatar" id="imageInput" class="profile-input">
+                        <div id="imagePreviewBox" style="display: none;">
+                            <img id="imagePreview" src="#" alt="Image Preview">
+                        </div>
+                        <button type="submit" class="update-button">Update</button>
                     <a href="/users/delete/<%= userData.id %>" method="delete" class="deactivate-link">Deactivate Account</a>
                     </form>
+                </div>
                 <% } else { %>
                     <h1 class="profile-name"><%= userData.name %></h1>
                     <h2 class="profile-email"><%= userData.email %></h2>

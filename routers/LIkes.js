@@ -6,7 +6,7 @@ const router=express.Router();
 
 const LikesController=require('../controllers/likes_Controller')
 
-router.post('/toggle',LikesController.toggle);
+router.post('/toggle',passport.checkAuthentication,LikesController.toggle);
 
 
 module.exports=router;

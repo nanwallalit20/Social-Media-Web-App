@@ -6,7 +6,7 @@ const router=express.Router();
 
 const friendController=require('../controllers/FriendshipController')
 
-router.post('/follow',friendController.friend);
+router.post('/follow',passport.checkAuthentication,friendController.friend);
 router.get('/search',friendController.search)
 
 

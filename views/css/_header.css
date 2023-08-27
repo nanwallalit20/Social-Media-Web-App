@@ -89,3 +89,11 @@ header {
   justify-content: center;
   margin-bottom: 0px;
 }
+#search-button{
+  background-color: #4473d8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}

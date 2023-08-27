@@ -13,6 +13,15 @@ $(document).ready(function() {
     });
   });
 
+
+  $(document).ready(function () {
+    $("#toggleButton").click(function (event) {
+        event.preventDefault();
+        $("#popup-update").slideToggle(300);
+     });
+  });
+
+
 export class ToggleFriendship{
 
     constructor(toggleElement){

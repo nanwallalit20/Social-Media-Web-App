@@ -6,42 +6,50 @@ module.exports.friend=async function(req,res){
    
     
     try{
-        let currentUser=await User.findById(req.user.id).populate('friends')
-        let friends=currentUser.friends;
-        console.log('friends:',friends);
+        let currentUser=await User.findById(req.user.id).populate('friends');
+        let friendUser=await User.findById(req.query.id).populate('friends');
+        // let friends=currentUser.friends;
+        // console.log('friends:',friends);
        // console.log('current user is',currentUser)
         let existingFriend=await Friendship.findOne({
-            from_user:req.user._id,
-            to_user:req.query.id
+            $or:[
+                {from_user:req.user._id, to_user:req.query.id},
+                {to_user:req.user._id , from_user : req.query.id}
+            ]
         }); 
         //console.log('existing user',existingFriend)
         if(existingFriend){
            currentUser.friends.pull(existingFriend._id);
+           friendUser.friends.pull(existingFriend._id);
+          
            currentUser.save();
+           friendUser.save();
            existingFriend.deleteOne();
            friends=false
-           req.flash('success','Unfriend');
 
+           req.flash('success','Unfriend');
         }
         //if user is found then remove it from friendlist
         else{
             let newFriend=await Friendship.create({
                 from_user:req.user._id,
-                to_user:req.query.id
+                to_user:req.query.id,
+              
+           
             });
            currentUser.friends.push(newFriend._id);
+           friendUser.friends.push(newFriend._id);
+           friendUser.save();
             currentUser.save();
             req.flash('success','friend request sent!!') 
-            friends=true;   
+            friends=true; 
         }
-
         return res.json(200,{
             message:'successfully request accepted',
             data:{
                 friends:friends
             }
         })
-
     }
     catch(e){
         console.log('error in sending the friend Request to user',e);

@@ -1,17 +1,27 @@
 <link rel="stylesheet" href="./css/homePage.css">
 <div id="home-container">
+   <section id="users-list">
+      <h2>Users</h2>
+      <% for(let user of Users){ %>
+   
+         <p class="friend-detail">
+            <a href="/users/profile/<%=user.id%>"><img src="<%=user.avatar%>" alt=" profile-Picture" class="profile-Picture"></a>
+            <a id="username" class="friend-name" href="/users/profile/<%=user.id%>"><%=user.name%></a>
+         </p>
+      <% } %>
+   </section>
    <section id="post-feeds">
       <h2>Posts</h2>
      <% if(locals.user){ %>
-      <form action="/post/create" method="post" id="new-post-feed">
+      <form action="/post/create" method="post" id="new-post-feed" enctype="multipart/form-data">
          <textarea name="content" id="post_content" cols="30" rows="5" placeholder="post content"> </textarea>
-         <button type="submit" value="submit">Post</button>
+         <button type="submit" value="submit" onclick="clearTextarea();">Post</button>
       </form>
      <% } %>
    
     
         <div id="post-list-container">
-            <ul style="list-style-type:none" >
+            <ul class="post-list-container" style="list-style-type:none" >
                <% for(let post of Posts){%>
       
                   <%- include('_post',{ post: post }) -%>
@@ -23,14 +33,19 @@
     
    </section>
    <section id="friends-list">
-      <% for(let user of Users){ %>
+      
+    <%  if(locals.user){%>
+      <h2>Friends</h2>
+      <% for(let friend of Friends){ %>
    
          <p class="friend-detail">
-            <a href="/users/profile/<%=user.id%>"><img src="<%=user.avatar%>" alt=" profile-Picture" class="profile-Picture"></a>
-            <a id="username" class="friend-name" href="/users/profile/<%=user.id%>"><%=user.name%></a>
+            <a href="/users/profile/<%=friend._id%>"><img src="<%=friend.avatar%>" alt=" profile-Picture" class="profile-Picture"></a>
+            <a id="username" class="friend-name" href="/users/profile/<%=friend._id%>"><%=friend.name%></a>
          </p>
       <% } %>
+    <%}%>   
    </section>
+  
    <section>
       <%- include('chatbox') -%>
    </section>

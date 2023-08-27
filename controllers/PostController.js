@@ -1,17 +1,21 @@
 const Post=require('../modals/postSchema');
 const Comment =require('../modals/comment');
 const Like=require('../modals/Likes');
+const path =require('path');
 
 
 module.exports.create= async function(req,res){
     try{
+     
       if(req.isAuthenticated())
       {
-       let newPost= await Post.create({
-         post:req.body.content,
-          user:res.locals.user._id ,    //we can access the same with req.user._id
-       });
-
+        let newPost= await Post.create({
+          post:req.body.content,
+           user:res.locals.user._id ,    //we can access the same with req.user._id
+        });
+        await newPost.save();
+        console.log('newpost is',newPost);
+      
       if(req.xhr){
         
         return res.status(200).json({
@@ -48,8 +52,8 @@ module.exports.create= async function(req,res){
       let post= await Post.findById(req.params.id)
         console.log(post);
         if(post.user==req.user.id){
-          await Like.deleteMany({likeable:'post',onModel:'Post'});
-          await Like.deleteMany({_id:{$in:post.comment}})
+          await Like.deleteMany({_id:{$in:post._id}});
+          await Like.deleteMany({_id:{$in:post.comment}});
           post.deleteOne(post._id);
          let deletedComment=await Comment.deleteMany({post:req.params.id});
          

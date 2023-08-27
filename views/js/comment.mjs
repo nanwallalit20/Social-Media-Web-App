@@ -114,9 +114,9 @@ export class PostComments{
                 success: function(data){
                     console.log(data);
                     let newComment = pSelf.newCommentDom(data.data.comment);
-                    $(`#post-comments-${postId}`).prepend(newComment);
+                    $(`#post-comments-list>ul`).prepend(newComment);
                     pSelf.deleteComment($(' .delete-comment-button', newComment));
-                    new ToggleLike($('. toggle-like-button',newComment)) 
+                    new ToggleLike($(' .toggle-like-button',newComment)) 
 
                     new Noty({
                         text: 'comment Created!!!',

@@ -1,19 +1,34 @@
 <link rel="stylesheet" href="./css/chatbox.css">
-<body >
-   <% if(locals.user){%>
-    <div id="chat-container" class="chat-container">
-        <li id="chat-message-list">
-            <div class="chat-message other-message">
-                <span>ohter message</span>
-            </div>
-            <div class="chat-message self-message">
-                <span>Self message</span>
-            </div>
-        </li>
-        <div class="input-container">
-            <input type="text" class="input-field" placeholder="Type your message...">
-            <button class="send-button">Send</button>
+<body>
+    <% if(locals.user){%>
+        <div id="chat-button" class="chat-button">
+            <a href="#chat-box" class="chat-button-link">Chat</a>
         </div>
-    </div>
-    <% }  %>
+        <div id="chat-box" class="chat-box" style="display: none;">
+            <li id="chat-message-list" class="chat-message-list">
+                <div class="chat-message other-message">
+                    <span>ohter message</span>
+                </div>
+                <div class="chat-message self-message">
+                    <span>Self message</span>
+                </div>
+            </li>
+            <div class="input-container">
+                <input type="text" class="input-field" placeholder="Type your message...">
+                <button class="send-button">Send</button>
+            </div>
+        </div>
+ 
+    <% } %>
 </body>
+<% if(locals.user){%>
+    <script>
+    
+        $(document).ready(function () {
+        $("#chat-button").click(function (event) {
+            event.preventDefault();
+            $("#chat-box").slideToggle(300);
+        });
+    });
+    </script>
+    <% } %>

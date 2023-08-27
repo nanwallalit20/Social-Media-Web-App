@@ -41,35 +41,35 @@ import { ToggleLike } from "./like.mjs";
     let newPostDOM=function(post,user){
         
        
-        return $(`<li class="list" id="post-${post._id}" >
+        return $(`<li class="list" class="list-post-container" id="post-${post._id}">
         <div id="container">
-           
            <small>
-              <a class="delete-post-button"  href="/post/destroy/${post._id}">X</a>
+              <a class="delete-post-button" href="/post/destroy/${post._id}">X</a>
            </small>
-       
-           <p>${user.name}</p>
-           <p>${post.post}</p>
-           <small>
-           <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&amp;type=Post"> Likes-0 </a>
-            </small>
+           <p class="username"><sub>${user.name}</sub></p>
+           <p class="post-content">${post.post}</p>
+          
+           
+          <small>
+          <a class="toggle-like-button" data-likes=${post.likes.length} href="/likes/toggle/?id=${post.id}&amp;type=Post"><i class="fas fa-heart"></i> ${post.likes.length} </a>
+        </small>
            </div>
         <div>
            <div>
-              <form action="/comment/create" method="post">
-              <textarea name="comment" id="comment"  placeholder="write comments"> </textarea>
+              <form action="/comment/create " class="comment-form" method="post">
+              <input type='text' name="comment" id="comment" class="comment-textarea" placeholder="write comments">
               <input type="hidden" name="post" value="${post._id}">
-              <button type="submit" value="submit"> Comment</button>
+              <button type="submit" value="submit" class="comment-button"> Comment</button>
               </form>
            <div>
-         <div id='post-comment-container'>
+         <div '>
             <ul id='post-comments-${post.id}'>
             
             </ul>
           </div
         </div>
         
-     </li>`)
+     </li>`);
     }
 
     //function for deleting post using dom 
@@ -120,6 +120,13 @@ function displayFlashMessage(message) {
       layout: 'topCenter', 
     }).show();
   }
+
+
+
+  //extra styles
+  function clearTextarea() {
+    document.getElementById('post_content').value = '';
+}
 
 
 

@@ -81,6 +81,10 @@ app.set('view engine','ejs')
 
 app.use('/users/profile/css',express.static(__dirname+'/views/css'))
 app.use('/users/profile/js',express.static(__dirname+'/views/js'))
+app.use('/users/css',express.static(__dirname+'/views/css'))
+app.use('/users/js',express.static(__dirname+'/views/js'))
+app.use('/users/resetPassword/css',express.static(__dirname+'/views/css'))
+app.use('/users/resetPassword/js',express.static(__dirname+'/views/js'))
 app.use('/uploads',express.static(__dirname+'/uploads'))
 
 app.use(session({

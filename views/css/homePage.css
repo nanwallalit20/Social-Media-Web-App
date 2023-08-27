@@ -1,17 +1,19 @@
 #home-container {
   display: flex;
+  height: 100vh;
 }
 
 #home-container #post-feeds {
   width: 70%;
   padding: 10px;
+  overflow-y: scroll;
 }
 
-#home-container #friends-list {
+#home-container #users-list {
   width: 30%;
   padding: 10px;
-  border-left: 2px solid #0f0b0b;
-  height: 100vh;
+  border-right: 2px solid #0f0b0b;
+  height: inherit;
 }
 .friend-name{
   text-decoration: none;
@@ -25,3 +27,178 @@
   align-items: center;
   margin-top: 30px;
 }
+#home-container #friends-list {
+  width: 30%;
+  padding: 10px;
+  border-left: 2px solid #0f0b0b;
+  height: inherit;
+}
+
+#post-feeds {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+#post-feeds h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+/* 
+#post-feeds form {
+  display: flex;
+  flex-direction: ;
+} */
+
+#new-post-feed textarea {
+  resize:vertical;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  color: #333;
+  width: 80%; 
+  transition: border-color 0.3s ease;
+}
+#new-post-feed textarea:focus{
+  
+    border-color: #007bff;
+    outline: none;
+
+}
+
+#new-post-feed button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 80%;
+}
+
+#new-post-feed button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+/* External CSS File (styles.css) */
+.post-container {
+  background-color: #c5b6b6;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.delete-post-button {
+  color: #ff5555;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.delete-post-button:hover {
+  color: #cc0000;
+}
+
+.username {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.post-content {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.toggle-like-button {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.toggle-like-button:hover {
+  color: #2980b9;
+}
+
+.comment-textarea {
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.comment-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.comment-button:hover {
+  background-color: #45a049;
+}
+
+.post-comment-container {
+  margin-top: 10px;
+  list-style-type: none;
+}
+
+.comment {
+  background-color: #f5f5f5;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.comment-like-button {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 12px;
+  margin-left: 10px;
+  transition: color 0.2s;
+}
+
+.comment-like-button:hover {
+  color: #2980b9;
+}
+.list{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: antiquewhite;
+  padding: 10px;
+}
+.post-list-container{
+  padding-left: 15px;
+}
+.comment-form{
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+}
+.comment-item{
+  background-color: #e7ffff;
+  border: 2px black solid;
+  padding: 10px;
+  margin: 10px;
+}
+

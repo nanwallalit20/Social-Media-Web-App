@@ -28,7 +28,16 @@ export class ToggleLike{
 
 
                 $(self).attr('data-likes', likesCount);
-                $(self).html(`${likesCount} Likes`);
+                $(self).html(`<i class="fas fa-heart"></i> ${likesCount}`);
+                new Noty({
+                   
+                    text: data.data.deleted? 'disliked !!!':'liked!!!',
+                    theme: 'sunset', // Replace with your preferred Noty theme
+                    type: 'success', // Replace with 'success', 'error', 'warning', or 'info' as needed
+                    timeout: 3000, // Set the duration for the message display (in milliseconds)
+                    layout: 'topCenter',
+                    
+                }).show();
 
             })
             .fail(function(errData) {

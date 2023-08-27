@@ -1,6 +1,14 @@
-<body>
-    <form action="/users/reset-password" method="post">
-        <input type="email" name="email" id="get-account" placeholder="type email...">
-        <button type="submit" value="submit">Continue</button>
-    </form>
+<link rel="stylesheet" href="./css/forgotPass.css">
+<body >
+    <div id="outer-forgot-container">
+    <div id="forgot-container">
+       
+        <form action="/users/reset-password" method="post" id="forget-email-form">
+            <label for="get-account">Please Enter your Email..</label>
+            <input type="email" name="email" id="get-account" placeholder="type email...">
+            <button type="submit" value="submit">Continue</button>
+        </form>
+    </div>
+</div>
+   
 </body>
