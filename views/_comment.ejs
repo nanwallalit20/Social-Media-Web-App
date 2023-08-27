@@ -7,7 +7,8 @@
          <small class="username">
             <%=comment.user.name%>
          </small>
-          <%=comment.content%>
+         <br>
+          <p id="comment-content"><%=comment.content%></p>
          <br>
       <% if(locals.user){%>
          <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment.id%>&amp;type=Comment"><i class="fas fa-heart"></i> <%= comment.likes.length %> </a>

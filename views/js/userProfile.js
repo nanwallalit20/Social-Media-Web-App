@@ -5,7 +5,7 @@ $(document).ready(function() {
   
         reader.onload = function(e) {
           $('#imagePreview').attr('src', e.target.result);
-          $('#imagePreviewBox').css('display', 'inline');
+          $('#imagePreviewBox').css('display', 'block');
         };
   
         reader.readAsDataURL(event.target.files[0]);

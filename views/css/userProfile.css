@@ -96,5 +96,8 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-  
+ #imagePreviewBox > img{
+  height: 150px;
+  width: 150px;
+ } 
   

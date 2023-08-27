@@ -8,6 +8,7 @@ const reset=require('../modals/forget-pass');
 const forgotPasswordNodemailer=require('../Mailers/forgot_passwordMailer')
 const userVerification=require('../Mailers/user_verification');
 const crypto=require('crypto');
+const Like = require('../modals/Likes');
 
 
 module.exports.profile= async function(req,res){
@@ -15,12 +16,18 @@ module.exports.profile= async function(req,res){
   let id=req.params.id;
     console.log('welcome to profile');
     let user= await User.findById(id).populate('friends');
-   console.log(user);
-          res.render('userProfile',{
-        title:'User Profile',
-        userData : user      
-      })
-    } 
+    if(user.email==null){
+      res.redirect(`/users/delete/${user._id}`)
+    }
+    else{
+      console.log("user datais ",user);
+      res.render('userProfile',{
+    title:'User Profile',
+    userData : user      
+  })
+} 
+    }
+
     catch(err)
     {
       if(err)
@@ -167,7 +174,8 @@ module.exports.delete=async function(req,res){
     
    await Post.deleteMany({user:user._id});
    
-    await Comment.deleteMany({user:user._id})
+    await Comment.deleteMany({user:user._id});
+    await Like.deleteMany({user:user._id});
     
    console.log('user deleted successfully');
     return res.redirect('back');
@@ -189,6 +197,10 @@ try{
   let finduser= await User.findOne({email:req.body.email});
   console.log('finduser is',finduser)
   
+  if(finduser==null){
+    req.flash("error","No account found with that email address");
+    return res.redirect('/sign-In');
+  }
  
   let forgot_user= await reset.create({
    
