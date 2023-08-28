@@ -1,0 +1,120 @@
+[0mGET / [32m200[0m 211.019 ms - 6615[0m
+[0mGET /js/search.js [36m304[0m 10.737 ms - -[0m
+[0mGET /css/_header.css [32m200[0m 29.640 ms - 1208[0m
+[0mGET /css/_footer.css [32m200[0m 30.469 ms - 419[0m
+[0mGET /css/chatbox.css [32m200[0m 19.403 ms - 1211[0m
+[0mGET /css/homePage.css [32m200[0m 18.384 ms - 2554[0m
+[0mGET /js/homePage.mjs [36m304[0m 12.184 ms - -[0m
+[0mGET /css/layout.css [32m200[0m 26.504 ms - 169[0m
+[0mGET /js/comment.mjs [36m304[0m 11.839 ms - -[0m
+[0mGET /js/like.mjs [36m304[0m 7.819 ms - -[0m
+[0mGET /js//chat_engine.js [36m304[0m 0.948 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1691499311263-332189054 [36m304[0m 5.742 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1692503175984-414953689 [36m304[0m 6.379 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1693115629622-846799770 [36m304[0m 6.396 ms - -[0m
+[0mGET /favicon.ico [33m404[0m 21.011 ms - 150[0m
+[0mGET / [36m304[0m 54.759 ms - -[0m
+[0mGET /css/layout.css [36m304[0m 0.940 ms - -[0m
+[0mGET /css/_header.css [36m304[0m 4.498 ms - -[0m
+[0mGET /css/_footer.css [36m304[0m 6.041 ms - -[0m
+[0mGET /css/homePage.css [36m304[0m 5.027 ms - -[0m
+[0mGET /css/chatbox.css [36m304[0m 1.629 ms - -[0m
+[0mGET /js/search.js [36m304[0m 2.390 ms - -[0m
+[0mGET /js/homePage.mjs [36m304[0m 6.003 ms - -[0m
+[0mGET /js/comment.mjs [36m304[0m 7.003 ms - -[0m
+[0mGET /js/like.mjs [36m304[0m 4.210 ms - -[0m
+[0mGET /js//chat_engine.js [36m304[0m 0.786 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1691499311263-332189054 [36m304[0m 1.956 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1692503175984-414953689 [36m304[0m 2.090 ms - -[0m
+[0mGET /uploads/users/avatars/avatar-1693115629622-846799770 [36m304[0m 2.145 ms - -[0m
+::1 - - [28/Aug/2023:06:41:27 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:27 +0000] "GET /css/layout.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:27 +0000] "GET /css/_header.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:27 +0000] "GET /js/search.js HTTP/1.1" 404 151 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:27 +0000] "GET /css/_footer.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:28 +0000] "GET /css/chatbox.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:28 +0000] "GET /css/homePage.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:28 +0000] "GET /js/comment.mjs HTTP/1.1" 404 153 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:28 +0000] "GET /js/like.mjs HTTP/1.1" 404 150 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:28 +0000] "GET /js/homePage.mjs HTTP/1.1" 404 154 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:28 +0000] "GET /uploads/users/avatars/avatar-1691499311263-332189054 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:28 +0000] "GET /js//chat_engine.js HTTP/1.1" 404 157 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:28 +0000] "GET /uploads/users/avatars/avatar-1692503175984-414953689 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:28 +0000] "GET /uploads/users/avatars/avatar-1693115629622-846799770 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /css/layout.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /css/_header.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /js/search.js HTTP/1.1" 404 151 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /js/homePage.mjs HTTP/1.1" 404 154 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /css/_footer.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /js/comment.mjs HTTP/1.1" 404 153 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /css/homePage.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /css/chatbox.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /js/like.mjs HTTP/1.1" 404 150 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /uploads/users/avatars/avatar-1691499311263-332189054 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /uploads/users/avatars/avatar-1692503175984-414953689 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /uploads/users/avatars/avatar-1693115629622-846799770 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:30 +0000] "GET /js//chat_engine.js HTTP/1.1" 404 157 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /css/layout.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /js/search.js HTTP/1.1" 404 151 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /css/_footer.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /css/_header.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /css/homePage.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /css/chatbox.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /js/homePage.mjs HTTP/1.1" 404 154 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /js/comment.mjs HTTP/1.1" 404 153 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /js/like.mjs HTTP/1.1" 404 150 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /uploads/users/avatars/avatar-1691499311263-332189054 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /js//chat_engine.js HTTP/1.1" 404 157 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /uploads/users/avatars/avatar-1692503175984-414953689 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:33 +0000] "GET /uploads/users/avatars/avatar-1693115629622-846799770 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /css/layout.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /js/search.js HTTP/1.1" 404 151 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /js/homePage.mjs HTTP/1.1" 404 154 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /css/_header.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /css/_footer.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /css/homePage.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /css/chatbox.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /js/comment.mjs HTTP/1.1" 404 153 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /js/like.mjs HTTP/1.1" 404 150 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /uploads/users/avatars/avatar-1691499311263-332189054 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /uploads/users/avatars/avatar-1692503175984-414953689 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /js//chat_engine.js HTTP/1.1" 404 157 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:34 +0000] "GET /uploads/users/avatars/avatar-1693115629622-846799770 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /css/layout.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /css/_header.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /css/_footer.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /js/search.js HTTP/1.1" 404 151 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /css/homePage.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /css/chatbox.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /js/homePage.mjs HTTP/1.1" 404 154 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /js/comment.mjs HTTP/1.1" 404 153 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /js/like.mjs HTTP/1.1" 404 150 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /js//chat_engine.js HTTP/1.1" 404 157 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /uploads/users/avatars/avatar-1691499311263-332189054 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /uploads/users/avatars/avatar-1692503175984-414953689 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:36 +0000] "GET /uploads/users/avatars/avatar-1693115629622-846799770 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /css/layout.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /css/_footer.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /css/_header.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /css/homePage.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /css/chatbox.css HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /js/search.js HTTP/1.1" 404 151 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /js/like.mjs HTTP/1.1" 404 150 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /js/homePage.mjs HTTP/1.1" 404 154 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /js/comment.mjs HTTP/1.1" 404 153 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /js//chat_engine.js HTTP/1.1" 404 157 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /uploads/users/avatars/avatar-1691499311263-332189054 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /uploads/users/avatars/avatar-1692503175984-414953689 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:37 +0000] "GET /uploads/users/avatars/avatar-1693115629622-846799770 HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:39 +0000] "GET /users/profile/64b29c29f5ad2a82fa4279fc HTTP/1.1" 302 60 "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:39 +0000] "GET /sign-In HTTP/1.1" 304 - "http://localhost:7000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:39 +0000] "GET /js/search.js HTTP/1.1" 404 151 "http://localhost:7000/sign-In" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:39 +0000] "GET /css/layout.css HTTP/1.1" 304 - "http://localhost:7000/sign-In" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:39 +0000] "GET /css/_header.css HTTP/1.1" 304 - "http://localhost:7000/sign-In" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:39 +0000] "GET /css/_footer.css HTTP/1.1" 304 - "http://localhost:7000/sign-In" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"
+::1 - - [28/Aug/2023:06:41:39 +0000] "GET /css/signIN.css HTTP/1.1" 200 718 "http://localhost:7000/sign-In" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"

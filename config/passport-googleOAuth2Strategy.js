@@ -2,12 +2,12 @@ const passport=require('passport');
 const googleOAuth2=require('passport-google-oauth').OAuth2Strategy;
 const crypto=require('crypto');
 const User=require('../modals/signup');
-
+const env=require('./environment')
 //call passport to use googleauth strategy
 passport.use(new googleOAuth2({
-    clientID:'290867098636-cq8n0u57rcmb57feqscaou52j1ei7lst.apps.googleusercontent.com',
-    clientSecret:'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',
-    callbackURL:'http://localhost:7000/users/auth/google/callback'
+    clientID:env.google_clientID,
+    clientSecret:env.google_clientSecret,
+    callbackURL:env.googgle_success_callbackURL
 },
 //callback function for token and profile that is received from google
 //access token for accessing user details from google

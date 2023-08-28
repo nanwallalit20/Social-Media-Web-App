@@ -1,12 +1,12 @@
 const passport=require('passport')
 const jWTstrategy=require('passport-jwt').Strategy;
 const ExtractJwt=require('passport-jwt').ExtractJwt;
-
+const env=require('./environment')
 const User=require('../modals/signup');
 
 let opts={
     jwtFromRequest:ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey:'codeial'
+    secretOrKey:env.jwt_secretOrKey
 
 }
 passport.use(new jWTstrategy(opts,function(jwtPayload,done){

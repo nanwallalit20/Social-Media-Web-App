@@ -3,7 +3,8 @@ const cookieParser=require('cookie-parser');
 const app=express();
 const port=7000;
 const db=require('./config/mongo');
- 
+ const env=require('./config/environment')
+ const logger=require('morgan')
 
 
 
@@ -67,6 +68,7 @@ console.log('web socket is running on port:3000');
 
 
 app.use(cookieParser());
+app.use(logger(env.morgan.mode,env.morgan.options))
 
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
@@ -74,23 +76,23 @@ app.set('layout extractScripts', true);
 
 
 // set the view engine
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname,env.asset_path)));
 app.set('view engine','ejs')
 // app.set('views','./views')
 // app.use(express.static('views'))
 
-app.use('/users/profile/css',express.static(__dirname+'/views/css'))
-app.use('/users/profile/js',express.static(__dirname+'/views/js'))
-app.use('/users/css',express.static(__dirname+'/views/css'))
-app.use('/users/js',express.static(__dirname+'/views/js'))
-app.use('/users/resetPassword/css',express.static(__dirname+'/views/css'))
-app.use('/users/resetPassword/js',express.static(__dirname+'/views/js'))
+app.use('/users/profile/css',express.static(path.join(__dirname,env.asset_path,'css')))
+app.use('/users/profile/js',express.static(path.join(__dirname,env.asset_path,'js')))
+app.use('/users/css',express.static(path.join(__dirname,env.asset_path,'css')))
+app.use('/users/js',express.static(path.join(__dirname,env.asset_path,'js')))
+app.use('/users/resetPassword/css',express.static(path.join(__dirname,env.asset_path,'css')))
+app.use('/users/resetPassword/js',express.static(path.join(__dirname,env.asset_path,'js')))
 app.use('/uploads',express.static(__dirname+'/uploads'))
 
 app.use(session({
     name:'codial',
     //to do change secret key when deploy on server
-    secret:'nanwalLalit',
+    secret:env.session_cookie_key,
     saveUninitialized:false,
     resave:false,
     cookie:{

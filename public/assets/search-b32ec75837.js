@@ -1,0 +1,1 @@
+$("#search-form").submit(function(e){e.preventDefault();document.getElementById("search-popup"),document.getElementById("search-input");e=$("#search-input").val();$.get("/friendship/search?q="+e,function(e){e=e.map(e=>`<div id='search-user'><a href="/users/profile/${e._id}">${e.name}</a></div>`).join("");$("#search-popup").html(e).show()})});
