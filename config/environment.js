@@ -14,7 +14,7 @@ const development={
     name:'development',
     session_cookie_key:'nanwallalit',
     db:'task_db',
-    asset_path:'/views',
+    asset_path:'views',
    smtp:{
     service:'gmail',
     host:'smtp.gmail.com',

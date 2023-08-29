@@ -10,42 +10,6 @@ const db=require('./config/mongo');
 
 const fs = require('fs');
 const path = require('path');
-// const sass = require('node-sass');
-// const sourceDirectory = './views/scss'; // Replace with the path to your SCSS source directory
-// const destinationDirectory = './views/css'; // Replace with the path to your CSS destination directory
-
-// function compileSassFile(inputFilePath, outputFilePath) {
-//   const result = sass.renderSync({
-//     file: inputFilePath,
-//     outputStyle: 'expanded', // or 'compressed' for minified CSS
-//   });
-
-//   fs.writeFileSync(outputFilePath, result.css);
-// }
-
-// function compileScssDirectory(sourceDir, destDir) {
-//   const files = fs.readdirSync(sourceDir);
-
-//   files.forEach((file) => {
-//     const sourcePath = path.join(sourceDir, file);
-//     const destPath = path.join(destDir, path.parse(file).name + '.css');
-
-//     const stats = fs.statSync(sourcePath);
-//     if (stats.isFile() && path.extname(file) === '.scss') {
-//       compileSassFile(sourcePath, destPath);
-//     } else if (stats.isDirectory()) {
-//       if (!fs.existsSync(destPath)) {
-//         fs.mkdirSync(destPath);
-//       }
-//       compileScssDirectory(sourcePath, destPath);
-//     }
-//   });
-// }
-
-
-// compileScssDirectory(sourceDirectory, destinationDirectory);
-
-
 const expressLayouts=require('express-ejs-layouts');
 
 //used for session cookie and aunthenticate
@@ -78,15 +42,16 @@ app.set('layout extractScripts', true);
 // set the view engine
 app.use(express.static(path.join(__dirname,env.asset_path)));
 app.set('view engine','ejs')
-// app.set('views','./views')
+app.set('views','./views')
 // app.use(express.static('views'))
 
-app.use('/users/profile/css',express.static(path.join(__dirname,env.asset_path,'css')))
-app.use('/users/profile/js',express.static(path.join(__dirname,env.asset_path,'js')))
-app.use('/users/css',express.static(path.join(__dirname,env.asset_path,'css')))
-app.use('/users/js',express.static(path.join(__dirname,env.asset_path,'js')))
-app.use('/users/resetPassword/css',express.static(path.join(__dirname,env.asset_path,'css')))
-app.use('/users/resetPassword/js',express.static(path.join(__dirname,env.asset_path,'js')))
+app.use('/users/profile/css',express.static(path.join(__dirname,'/views/css')))
+app.use('/js',express.static(path.join(__dirname,'/views/js')))
+app.use('/users/profile/js',express.static(path.join(__dirname,'/views/js')))
+app.use('/users/css',express.static(path.join(__dirname,'/views/css')))
+app.use('/users/js',express.static(path.join(__dirname,'/views/js')))
+app.use('/users/resetPassword/css',express.static(path.join(__dirname,'/views/css')))
+app.use('/users/resetPassword/js',express.static(path.join(__dirname,'/views/js')))
 app.use('/uploads',express.static(__dirname+'/uploads'))
 
 app.use(session({

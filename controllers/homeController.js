@@ -1,25 +1,9 @@
 const Post=require('../modals/postSchema')
-const Comment=require('../modals/comment');
+
 const User=require('../modals/signup');
 module.exports.home=async function(req,res){
+  
 
-    // Post.find({user:req.user._id}).
-    // then(posts=>{
-    //     console.log("Posts", posts);
-        
-    //         res.render('homePage',{
-    //             title:'Home',
-    //             Posts:posts
-    //         })
-    // })
-    // .catch(err=>{
-    //     if(err)
-    //     {
-    //         console.log("error in fetching post");
-    //     }
-    // })
-
-    //method 2 for displaying user data on the page as shown in video
     try{
       let posts = await Post.find({}).sort('-createdAt')
           .populate('user')
@@ -31,8 +15,7 @@ module.exports.home=async function(req,res){
               ]
           })
           .populate('likes');
-
-        console.log('posts form home controller contains the following details',posts[0].comment[0].user)
+        // console.log('posts form home controller contains the following details',posts[0])
         let users= await User.find({});
         if(req.user){
           let currentUser = await User.findById(req.user._id)
@@ -41,7 +24,7 @@ module.exports.home=async function(req,res){
             populate: { path: 'to_user' }
           });
           let frineds = currentUser.friends.map(friend => friend.to_user);          
-          return res.render('homepage',{
+          return res.render('homePage',{
               title:'home',
               Posts:posts,
               Users: users,
@@ -49,7 +32,7 @@ module.exports.home=async function(req,res){
           })
             }
         else{
-              return res.render('homepage',{
+              return res.render('homePage',{
                 title:'home',
                 Posts:posts,
                 Users: users,   
